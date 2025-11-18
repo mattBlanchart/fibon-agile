@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://bdagp76epavag"]
+
+[ext_resource type="Texture2D" uid="uid://nllvcsxp1si6" path="res://assets/bg.png" id="1_1goxv"]
+[ext_resource type="Script" uid="uid://bhmepkg757r6c" path="res://scenes/battleground/battleground.gd" id="1_gjt34"]
+[ext_resource type="Script" uid="uid://h4y3ifsujqlx" path="res://scenes/battleground/hand.gd" id="2_2l87q"]
+[ext_resource type="PackedScene" uid="uid://bbffpx71nxsq4" path="res://scenes/cardui/card_ui.tscn" id="3_bxs33"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1goxv"]
+size = Vector2(640, 278.5)
+
+[node name="Battleground" type="Node2D"]
+script = ExtResource("1_gjt34")
+
+[node name="bg" type="Sprite2D" parent="."]
+texture = ExtResource("1_1goxv")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="CardDropArea" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CardDropArea"]
+position = Vector2(321, 140.75)
+shape = SubResource("RectangleShape2D_1goxv")
+
+[node name="Hand" type="Node2D" parent="."]
+position = Vector2(331, 282)
+script = ExtResource("2_2l87q")
+card_scene = ExtResource("3_bxs33")
