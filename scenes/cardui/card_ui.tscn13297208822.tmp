@@ -2,20 +2,27 @@
 
 [ext_resource type="Texture2D" uid="uid://fqtvkcasmvod" path="res://assets/main/cards/card_bg.png" id="1_bn3gx"]
 
-[sub_resource type="GDScript" id="GDScript_bn3gx"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ed823"]
+size = Vector2(60, 84)
 
 [node name="CardUI" type="Control"]
-custom_minimum_size = Vector2(48.6, 68)
+custom_minimum_size = Vector2(60, 84)
 layout_mode = 3
 anchors_preset = 0
-offset_right = 48.6
-offset_bottom = 68.0
-script = SubResource("GDScript_bn3gx")
+offset_right = 60.0
+offset_bottom = 84.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.81, 0.81)
 texture = ExtResource("1_bn3gx")
 centered = false
+
+[node name="DropPointDetector" type="Area2D" parent="."]
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DropPointDetector"]
+position = Vector2(30, 42)
+shape = SubResource("RectangleShape2D_ed823")
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
