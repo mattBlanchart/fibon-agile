@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvrk1y76hx81q"
-path="res://.godot/imported/logo_wintercupPlan de travail 1.png-811a6b66b085b3aaa7b2a2df5187ff8c.ctex"
+uid="uid://6okqx1wdbqmw"
+path="res://.godot/imported/ttt.png-9c4935dfd7a751766bf89a8fb7e6e58b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/logo_wintercupPlan de travail 1.png"
-dest_files=["res://.godot/imported/logo_wintercupPlan de travail 1.png-811a6b66b085b3aaa7b2a2df5187ff8c.ctex"]
+source_file="res://assets/credits/ttt.png"
+dest_files=["res://.godot/imported/ttt.png-9c4935dfd7a751766bf89a8fb7e6e58b.ctex"]
 
 [params]
 

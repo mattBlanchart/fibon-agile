@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bdagp76epavag"]
 
-[ext_resource type="Texture2D" uid="uid://nllvcsxp1si6" path="res://assets/bg.png" id="1_1goxv"]
+[ext_resource type="Texture2D" uid="uid://nllvcsxp1si6" path="res://assets/main/bg.png" id="1_1goxv"]
 [ext_resource type="Script" uid="uid://bhmepkg757r6c" path="res://scenes/battleground/battleground.gd" id="1_gjt34"]
 [ext_resource type="Script" uid="uid://h4y3ifsujqlx" path="res://scenes/battleground/hand.gd" id="2_2l87q"]
 [ext_resource type="PackedScene" uid="uid://bbffpx71nxsq4" path="res://scenes/cardui/card_ui.tscn" id="3_bxs33"]

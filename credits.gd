@@ -1,15 +1,10 @@
-extends Node2D
+extends Node
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var textures = [
-		preload("res://assets/main/cards/card_05.png"),
-		preload("res://assets/main/cards/card_05.png"),
-		preload("res://assets/main/cards/card_05.png")
-	]
+	pass # Replace with function body.
 
-	$Hand.set_hand(textures)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
