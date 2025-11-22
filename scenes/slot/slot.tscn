@@ -7,8 +7,3 @@ custom_minimum_size = Vector2(49.5, 69)
 offset_right = 49.5
 offset_bottom = 69.0
 script = ExtResource("1_bej84")
-
-[node name="TextureRect" type="TextureRect" parent="."]
-custom_minimum_size = Vector2(49.5, 69)
-layout_mode = 2
-expand_mode = 1

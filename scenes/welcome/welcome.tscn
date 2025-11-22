@@ -27,6 +27,7 @@ layout_mode = 1
 offset_right = 638.0
 offset_bottom = 358.0
 color = Color(0.040740967, 0.049102306, 0.1171875, 1)
+metadata/_edit_lock_ = true
 
 [node name="StartButton" type="Button" parent="."]
 layout_mode = 1

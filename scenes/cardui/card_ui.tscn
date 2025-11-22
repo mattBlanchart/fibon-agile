@@ -1,8 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bbffpx71nxsq4"]
 
 [ext_resource type="Texture2D" uid="uid://fqtvkcasmvod" path="res://assets/main/cards/card_bg.png" id="1_bn3gx"]
-
-[sub_resource type="GDScript" id="GDScript_bn3gx"]
+[ext_resource type="Script" uid="uid://7jp6megy03yy" path="res://scenes/cardui/card_ui.gd" id="1_ed823"]
 
 [node name="CardUI" type="Control"]
 custom_minimum_size = Vector2(48.6, 68)
@@ -10,12 +9,21 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 48.6
 offset_bottom = 68.0
-script = SubResource("GDScript_bn3gx")
+script = ExtResource("1_ed823")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.81, 0.81)
 texture = ExtResource("1_bn3gx")
 centered = false
+
+[node name="Value" type="Label" parent="."]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 16.0
+offset_right = 44.0
+offset_bottom = 39.0
+text = "test"
+horizontal_alignment = 1
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
