@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://b03y51f454xs"]
+[gd_scene load_steps=18 format=3 uid="uid://b03y51f454xs"]
 
 [ext_resource type="Texture2D" uid="uid://dvrk1y76hx81q" path="res://assets/welcome/logo_wintercup.png" id="1_c8xcy"]
 [ext_resource type="Script" uid="uid://bf4kfbqyhhqgk" path="res://scenes/credits/credits.gd" id="1_o5atr"]
@@ -13,21 +13,8 @@
 [ext_resource type="Script" uid="uid://sy764mwnw6fa" path="res://scenes/credits/flo_body_2d.gd" id="11_6gsh7"]
 [ext_resource type="Texture2D" uid="uid://bdhw5t8fejyu6" path="res://assets/credits/FP/FP_sheet.png" id="11_o5atr"]
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_o5atr"]
-a = Vector2(317, -156)
-b = Vector2(318, 199)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_6gsh7"]
-a = Vector2(-320, 179)
-b = Vector2(319, 179)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_spr88"]
-a = Vector2(-319, -178)
-b = Vector2(-320, 179)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_5jxok"]
-a = Vector2(-320, -178)
-b = Vector2(319, -179)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wprml"]
+size = Vector2(640, 360)
 
 [sub_resource type="Animation" id="Animation_lwbe5"]
 resource_name = "MB"
@@ -115,21 +102,9 @@ position = Vector2(593, 306)
 scale = Vector2(0.08801778, 0.08801778)
 texture = ExtResource("3_huu5m")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(320, 179)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(1, -20)
-shape = SubResource("SegmentShape2D_o5atr")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource("SegmentShape2D_6gsh7")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource("SegmentShape2D_spr88")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource("SegmentShape2D_5jxok")
+shape = SubResource("RectangleShape2D_wprml")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 2
