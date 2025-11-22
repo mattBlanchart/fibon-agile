@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=2 format=3 uid="uid://drjlofj0vhesv"]
+
+[ext_resource type="Script" uid="uid://b64xjjg7rdik0" path="res://scripts/card_data.gd" id="1_bw7ou"]
+
+[resource]
+script = ExtResource("1_bw7ou")
+value = 3
+effect_id = "set_if_equals"
+effect_params = {
+"target": 1,
+"value": 10
+}
+metadata/_custom_type_script = "uid://b64xjjg7rdik0"

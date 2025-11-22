@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://sfwd2wxthaak"]
+
+[ext_resource type="Script" uid="uid://b4vjnenor578q" path="res://scenes/raph/card.gd" id="1_yiag5"]
+[ext_resource type="Resource" uid="uid://dpienksexcqje" path="res://data/cards/001.tres" id="2_tgmmg"]
+[ext_resource type="Texture2D" uid="uid://fqtvkcasmvod" path="res://assets/main/cards/card_bg.png" id="3_4dx8l"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4dx8l"]
+font_size = 10
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qf083"]
+font_color = Color(0, 0, 0, 1)
+
+[node name="Card" type="Control"]
+custom_minimum_size = Vector2(60, 84)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 60.0
+offset_bottom = 84.0
+script = ExtResource("1_yiag5")
+data = ExtResource("2_tgmmg")
+
+[node name="CardBg" type="Sprite2D" parent="."]
+texture = ExtResource("3_4dx8l")
+centered = false
+
+[node name="Value" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 2.0
+offset_bottom = 16.000004
+grow_horizontal = 2
+mouse_filter = 1
+text = "123"
+label_settings = SubResource("LabelSettings_4dx8l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "100"
+label_settings = SubResource("LabelSettings_qf083")
+horizontal_alignment = 1
+vertical_alignment = 1

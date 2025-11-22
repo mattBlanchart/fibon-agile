@@ -15,6 +15,3 @@ func piocher():
 		var scene_enfant = load("res://scenes/cardui/card_ui.tscn")
 		var instance_enfant = scene_enfant.instantiate()           
 		node.add_child(instance_enfant)
-
-	
-	
