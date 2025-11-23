@@ -117,10 +117,10 @@ position = Vector2(593, 306)
 scale = Vector2(0.08801778, 0.08801778)
 texture = ExtResource("3_huu5m")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="Contour" type="StaticBody2D" parent="."]
 position = Vector2(320, 179)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+[node name="CollisionContour2D" type="CollisionPolygon2D" parent="Contour"]
 build_mode = 1
 polygon = PackedVector2Array(-320, -178, 318, -180, 319, 180, -320, 178)
 
@@ -186,16 +186,19 @@ scale = Vector2(0.25, 0.25)
 
 [node name="FloBody2D" type="CharacterBody2D" parent="CanvasLayer"]
 unique_name_in_owner = true
+position = Vector2(455, 84)
 script = ExtResource("11_6gsh7")
+speed = 500
+finalTurn = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/FloBody2D"]
-position = Vector2(454, 86)
+position = Vector2(-1, 1)
 texture = ExtResource("11_o5atr")
 hframes = 3
 vframes = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/FloBody2D"]
-position = Vector2(454, 86)
+position = Vector2(-1, 1)
 shape = SubResource("RectangleShape2D_o5atr")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/FloBody2D"]
