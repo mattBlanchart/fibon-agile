@@ -11,9 +11,11 @@ extends Control
 
 func _ready() -> void:
 	_spawn_starting_hand()
+	var button = $Button
+	button.pressed.connect(piocher_card)
 
 func _spawn_starting_hand() -> void:
-	var card_scene: PackedScene = preload("res://scenes/Card.tscn")
+	var card_scene: PackedScene = preload("res://scenes/cardui/Card.tscn")
 	
 	for card_data in starting_hand:
 		var card_instance = card_scene.instantiate()
@@ -50,3 +52,20 @@ func _calc_score() -> void:
 	
 	# Change le texte du label
 	score_label.text = "Score: %d" % total
+	
+func piocher_card():
+	if deck.is_empty():
+		print("plus de carte dans le deck")
+		return
+
+	# Take the first card from the deck
+	var card_data = deck.pop_front()
+
+	var scene_enfant: PackedScene = preload("res://scenes/cardui/Card.tscn")
+	var instance_enfant = scene_enfant.instantiate()
+	instance_enfant.data = card_data
+	instance_enfant.play_requested.connect(_on_card_play_requested)
+
+	hand_area.add_child(instance_enfant)
+
+	

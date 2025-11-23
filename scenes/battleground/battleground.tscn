@@ -1,62 +1,154 @@
-[gd_scene load_steps=4 format=3 uid="uid://bdagp76epavag"]
+[gd_scene load_steps=14 format=3 uid="uid://qc051v8j3qtj"]
 
-[ext_resource type="Texture2D" uid="uid://nllvcsxp1si6" path="res://assets/main/bg.png" id="1_1goxv"]
-[ext_resource type="Script" uid="uid://bhmepkg757r6c" path="res://scenes/battleground/battleground.gd" id="1_bxs33"]
-[ext_resource type="PackedScene" uid="uid://btfh2i8cy6ivn" path="res://scenes/slot/slot.tscn" id="2_bxs33"]
+[ext_resource type="Script" uid="uid://6b2myt3qbdne" path="res://scenes/battleground/battle_ground.gd" id="1_2dohi"]
+[ext_resource type="Script" uid="uid://b64xjjg7rdik0" path="res://scripts/card_data.gd" id="2_vaugh"]
+[ext_resource type="Resource" uid="uid://dpienksexcqje" path="res://data/cards/001.tres" id="3_6qm4m"]
+[ext_resource type="Resource" uid="uid://dypw1dsqjs0ed" path="res://data/cards/002.tres" id="4_ilbe0"]
+[ext_resource type="Resource" uid="uid://drjlofj0vhesv" path="res://data/cards/003.tres" id="5_fiq6f"]
+[ext_resource type="Texture2D" uid="uid://nllvcsxp1si6" path="res://assets/main/bg.png" id="6_l0ycn"]
+[ext_resource type="Script" uid="uid://cxafhodgbj8fo" path="res://scenes/battleground/SpriteRyu.gd" id="7_jh55q"]
+[ext_resource type="Texture2D" uid="uid://chubm5klky615" path="res://assets/ryu.png" id="7_uu1um"]
 
-[node name="Battleground" type="Node2D"]
-script = ExtResource("1_bxs33")
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2n28h"]
 
-[node name="bg" type="Sprite2D" parent="."]
-texture = ExtResource("1_1goxv")
+[sub_resource type="Animation" id="Animation_lwbe5"]
+resource_name = "MB"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06714336, 0.13333334, 0.2, 0.26666668, 0.3, 0.33333337, 0.36666667, 0.46666667, 0.5, 0.56666666, 0.7, 0.8666667, 1.0333333, 1.1666666, 1.2333333, 1.3666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 1, 1, 2, 2, 2, 3, 3, 4, 5, 6, 7, 3, 7, 5, 7]
+}
+
+[sub_resource type="Animation" id="Animation_17l06"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_mxqwe"]
+resource_name = "Ryu"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.3, 0.5, 0.7, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [4, 6, 7, 6, 4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mxqwe"]
+_data = {
+&"MB": SubResource("Animation_lwbe5"),
+&"RESET": SubResource("Animation_17l06"),
+&"Ryu": SubResource("Animation_mxqwe")
+}
+
+[node name="BattleGround" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1.0
+offset_top = 8.0
+offset_right = 1.0
+offset_bottom = 8.0
+script = ExtResource("1_2dohi")
+deck = Array[ExtResource("2_vaugh")]([ExtResource("3_6qm4m"), ExtResource("4_ilbe0"), ExtResource("5_fiq6f")])
+starting_hand = Array[ExtResource("2_vaugh")]([ExtResource("3_6qm4m"), ExtResource("4_ilbe0"), ExtResource("5_fiq6f"), ExtResource("3_6qm4m"), ExtResource("3_6qm4m"), ExtResource("4_ilbe0")])
+
+[node name="Bg" type="Sprite2D" parent="."]
+texture = ExtResource("6_l0ycn")
 centered = false
 metadata/_edit_lock_ = true
 
-[node name="Hand" type="Node2D" parent="."]
-position = Vector2(331, 282)
+[node name="ScoreLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 184.0
+offset_right = 576.0
+offset_bottom = 208.0
+text = "Score: 0"
 
-[node name="Main" type="HBoxContainer" parent="."]
-layout_direction = 1
-offset_left = 189.0
-offset_top = 314.0
-offset_right = 450.0
-offset_bottom = 383.0
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 123.0
+offset_top = 200.0
+offset_right = 523.0
+offset_bottom = 376.0
 
-[node name="Slot" parent="Main" groups=["hand"] instance=ExtResource("2_bxs33")]
+[node name="PlayPanel" type="Panel" parent="VBoxContainer"]
 layout_mode = 2
-isHand = true
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_2n28h")
 
-[node name="Slot2" parent="Main" groups=["hand"] instance=ExtResource("2_bxs33")]
+[node name="PlayArea" type="HBoxContainer" parent="VBoxContainer/PlayPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 5
+alignment = 1
+
+[node name="HandPanel" type="Panel" parent="VBoxContainer"]
 layout_mode = 2
-isHand = true
+size_flags_vertical = 3
 
-[node name="Slot3" parent="Main" groups=["hand"] instance=ExtResource("2_bxs33")]
-layout_mode = 2
-isHand = true
-
-[node name="Slot4" parent="Main" groups=["hand"] instance=ExtResource("2_bxs33")]
-layout_mode = 2
-isHand = true
-
-[node name="Slot5" parent="Main" groups=["hand"] instance=ExtResource("2_bxs33")]
-layout_mode = 2
-isHand = true
-
-[node name="Played" type="HBoxContainer" parent="."]
-layout_direction = 1
-offset_left = 295.0
-offset_top = 238.0
-offset_right = 344.0
-offset_bottom = 307.0
-
-[node name="Slot" parent="Played" instance=ExtResource("2_bxs33")]
-layout_mode = 2
+[node name="HandArea" type="HBoxContainer" parent="VBoxContainer/HandPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 54.0
+offset_top = -2.0
+offset_right = -39.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 5
+alignment = 1
 
 [node name="Button" type="Button" parent="."]
-offset_left = 59.0
-offset_top = 316.0
-offset_right = 136.0
-offset_bottom = 347.0
+layout_mode = 0
+offset_left = 25.0
+offset_top = 312.0
+offset_right = 102.0
+offset_bottom = 343.0
 text = "PIOCHER"
 
-[editable path="Main/Slot"]
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(4, -4)
+script = ExtResource("7_jh55q")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(321, 131)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("7_uu1um")
+hframes = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+
+[node name="Ryu" type="AnimationPlayer" parent="CharacterBody2D"]
+libraries = {
+&"": SubResource("AnimationLibrary_mxqwe")
+}

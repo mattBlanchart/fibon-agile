@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b03y51f454xs"]
+[gd_scene load_steps=14 format=3 uid="uid://b03y51f454xs"]
 
 [ext_resource type="Texture2D" uid="uid://dvrk1y76hx81q" path="res://assets/welcome/logo_wintercup.png" id="1_c8xcy"]
 [ext_resource type="Script" uid="uid://bf4kfbqyhhqgk" path="res://scenes/credits/credits.gd" id="1_o5atr"]
@@ -7,7 +7,7 @@
 [ext_resource type="Material" uid="uid://dwu6hpvrbh8ih" path="res://scenes/credits/blur.tres" id="4_huu5m"]
 [ext_resource type="Texture2D" uid="uid://6okqx1wdbqmw" path="res://assets/credits/ttt.png" id="5_icb2l"]
 [ext_resource type="Texture2D" uid="uid://c3ya1xuxr71bp" path="res://assets/credits/MB/MB_nom.png" id="7_lwbe5"]
-[ext_resource type="Script" uid="uid://co5ktlyeohrvd" path="res://scenes/credits/animated_sprite.gd" id="8_mxqwe"]
+[ext_resource type="Script" uid="uid://co5ktlyeohrvd" path="res://scenes/credits/SpriteMB.gd" id="8_mxqwe"]
 [ext_resource type="Texture2D" uid="uid://djjg5koxlwtp8" path="res://assets/credits/MB/MB_sheet.png" id="8_t15ab"]
 
 [sub_resource type="Animation" id="Animation_lwbe5"]
@@ -19,10 +19,10 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.26666668, 0.6, 0.76666665, 0.8333333, 0.96666664),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.06714336, 0.13333334, 0.2, 0.26666668, 0.3, 0.33333337, 0.36666667, 0.46666667, 0.5, 0.56666666, 0.7, 0.8666667, 1.0333333, 1.1666666, 1.2333333, 1.3666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 4, 5]
+"values": [0, 1, 1, 1, 2, 2, 2, 3, 3, 4, 5, 6, 7, 3, 7, 5, 7]
 }
 
 [sub_resource type="Animation" id="Animation_17l06"]
@@ -40,10 +40,27 @@ tracks/0/keys = {
 "values": [0]
 }
 
+[sub_resource type="Animation" id="Animation_mxqwe"]
+resource_name = "Ryu"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.3, 0.5, 0.7, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [4, 6, 7, 6, 4]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mxqwe"]
 _data = {
 &"MB": SubResource("Animation_lwbe5"),
-&"RESET": SubResource("Animation_17l06")
+&"RESET": SubResource("Animation_17l06"),
+&"Ryu": SubResource("Animation_mxqwe")
 }
 
 [node name="Credits" type="Control"]
