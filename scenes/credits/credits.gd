@@ -12,3 +12,8 @@ func _process(delta: float) -> void:
 func _on_quit_credit_pressed() -> void:
 		print("Go to Welcome page")
 		get_tree().change_scene_to_file("res://scenes/welcome/welcome.tscn")
+		
+func _on_arrivee_player_entered_arrivee(body: Variant) -> void:
+	print("test")
+	%FloBody2D.turn += 1
+		
