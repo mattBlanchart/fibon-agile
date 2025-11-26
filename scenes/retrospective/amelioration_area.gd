@@ -1,5 +1,6 @@
 extends Sprite2D
 
+var carte: PackedScene = preload("res://scenes/cardui/Card.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

@@ -1,14 +1,14 @@
 extends Control
 
+var carte_scene: PackedScene = preload("res://scenes/cardui/Card.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+	var carte = carte_scene.instantiate()
+	add_child(carte)
+	carte.position = Vector2(50,50)
+	add_child(carte)
+	add_child(carte)
 
 func _on_quit_credit_pressed() -> void:
 		print("Go to Welcome page")

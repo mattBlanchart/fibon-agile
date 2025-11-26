@@ -1,10 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bsdby1desiutf"]
+[gd_scene load_steps=4 format=3 uid="uid://bsdby1desiutf"]
 
 [ext_resource type="Material" uid="uid://dwu6hpvrbh8ih" path="res://scenes/credits/blur.tres" id="1_4ha4f"]
 [ext_resource type="Script" uid="uid://bbay0nqhq414k" path="res://scenes/retrospective/retrospective.gd" id="1_ftwu0"]
-[ext_resource type="Texture2D" uid="uid://cdy1to7vjgwlg" path="res://assets/retrospective/rectangle.png" id="1_ps3yx"]
-[ext_resource type="Script" uid="uid://ccec6gpa6diem" path="res://scenes/retrospective/amelioration_area.gd" id="2_4ha4f"]
-[ext_resource type="PackedScene" uid="uid://bbffpx71nxsq4" path="res://scenes/cardui/card_ui.tscn" id="2_bw3bv"]
+[ext_resource type="Texture2D" uid="uid://nllvcsxp1si6" path="res://assets/main/bg.png" id="2_ftwu0"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -14,6 +12,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ftwu0")
+
+[node name="Battleground" type="Sprite2D" parent="."]
+position = Vector2(320, 180)
+texture = ExtResource("2_ftwu0")
 
 [node name="Blur" type="ColorRect" parent="."]
 material = ExtResource("1_4ha4f")
@@ -42,29 +44,24 @@ action_mode = 0
 keep_pressed_outside = true
 text = "QUITTEZ LA RETROSPECTIVE"
 
-[node name="AmeliorationArea" type="Sprite2D" parent="."]
-position = Vector2(321, 207)
-scale = Vector2(0.53013027, 0.48134327)
-texture = ExtResource("1_ps3yx")
-script = ExtResource("2_4ha4f")
+[node name="HandPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 96.0
+offset_top = 128.0
+offset_right = 549.0
+offset_bottom = 273.0
+size_flags_vertical = 3
 
-[node name="CardUI" parent="AmeliorationArea" instance=ExtResource("2_bw3bv")]
-offset_left = -311.24426
-offset_top = -45.705414
-offset_right = -262.64426
-offset_bottom = 22.294586
-
-[node name="CardUI2" parent="AmeliorationArea" instance=ExtResource("2_bw3bv")]
-offset_left = -75.45315
-offset_top = -43.627914
-offset_right = -26.853142
-offset_bottom = 24.372086
-
-[node name="CardUI3" parent="AmeliorationArea" instance=ExtResource("2_bw3bv")]
-offset_left = 182.97389
-offset_top = -43.627907
-offset_right = 231.5739
-offset_bottom = 24.372093
+[node name="HandArea" type="HBoxContainer" parent="HandPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 5
+alignment = 1
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
