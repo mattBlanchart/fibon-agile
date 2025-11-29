@@ -1,11 +1,21 @@
-[gd_scene load_steps=10 format=3 uid="uid://qc051v8j3qtj"]
+[gd_scene load_steps=13 format=3 uid="uid://qc051v8j3qtj"]
 
 [ext_resource type="Script" uid="uid://6b2myt3qbdne" path="res://scenes/battleground/battle_ground.gd" id="1_2dohi"]
 [ext_resource type="Texture2D" uid="uid://nllvcsxp1si6" path="res://assets/main/bg.png" id="6_l0ycn"]
 [ext_resource type="Script" uid="uid://cxafhodgbj8fo" path="res://scenes/battleground/SpriteRyu.gd" id="7_jh55q"]
 [ext_resource type="Texture2D" uid="uid://chubm5klky615" path="res://assets/ryu.png" id="7_uu1um"]
 
+[sub_resource type="Theme" id="Theme_gjt34"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gsw8g"]
+bg_color = Color(0.34274945, 0, 0.12671727, 0.78431374)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2n28h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gjt34"]
+size = Vector2(47, 80)
 
 [sub_resource type="Animation" id="Animation_lwbe5"]
 resource_name = "MB"
@@ -62,11 +72,11 @@ _data = {
 
 [node name="BattleGround" type="Control"]
 layout_mode = 3
-anchors_preset = 0
-offset_left = 1.0
-offset_top = 8.0
-offset_right = 1.0
-offset_bottom = 8.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_2dohi")
 
 [node name="Bg" type="Sprite2D" parent="."]
@@ -82,19 +92,85 @@ offset_right = 576.0
 offset_bottom = 208.0
 text = "Score: 0"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_left = 123.0
-offset_top = 200.0
-offset_right = 523.0
-offset_bottom = 376.0
+[node name="UI" type="Panel" parent="."]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
 
-[node name="PlayPanel" type="Panel" parent="VBoxContainer"]
+[node name="BossHP" type="Label" parent="UI"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -0.5
+offset_right = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "3000"
+horizontal_alignment = 1
+
+[node name="CurrentPI" type="Label" parent="UI"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 1.0
+grow_vertical = 2
+text = "PI: 1 Sprint: 1"
+
+[node name="GameZone" type="Panel" parent="."]
+clip_contents = true
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_gjt34")
+theme_override_styles/panel = SubResource("StyleBoxFlat_gsw8g")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GameZone"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="GameZone/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameZone/HBoxContainer/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="DeckSize" type="Label" parent="GameZone/HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 14
+text = "Deck: 10/40"
+
+[node name="DrawButton" type="Button" parent="GameZone/HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "PIOCHER"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameZone/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PlayPanel" type="Panel" parent="GameZone/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxEmpty_2n28h")
 
-[node name="PlayArea" type="HBoxContainer" parent="VBoxContainer/PlayPanel"]
+[node name="PlayArea" type="HBoxContainer" parent="GameZone/HBoxContainer/VBoxContainer/PlayPanel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -104,11 +180,11 @@ grow_vertical = 2
 theme_override_constants/separation = 5
 alignment = 1
 
-[node name="HandPanel" type="Panel" parent="VBoxContainer"]
+[node name="HandPanel" type="Panel" parent="GameZone/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="HandArea" type="HBoxContainer" parent="VBoxContainer/HandPanel"]
+[node name="HandArea" type="HBoxContainer" parent="GameZone/HBoxContainer/VBoxContainer/HandPanel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -118,43 +194,43 @@ grow_vertical = 2
 theme_override_constants/separation = 5
 alignment = 1
 
+[node name="MarginContainer2" type="MarginContainer" parent="GameZone/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_right = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameZone/HBoxContainer/MarginContainer2"]
+layout_mode = 2
+alignment = 1
+
+[node name="Turns" type="Label" parent="GameZone/HBoxContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Tour 1/3"
+
+[node name="EndTurn" type="Button" parent="GameZone/HBoxContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Fin du
+ tour"
+
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-position = Vector2(4, -4)
+position = Vector2(323, 121)
 script = ExtResource("7_jh55q")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
-position = Vector2(321, 131)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("7_uu1um")
 hframes = 8
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+visible = false
+position = Vector2(-2.5, 18)
+shape = SubResource("RectangleShape2D_gjt34")
+metadata/_edit_lock_ = true
 
 [node name="Ryu" type="AnimationPlayer" parent="CharacterBody2D"]
 libraries = {
 &"": SubResource("AnimationLibrary_mxqwe")
 }
-
-[node name="DrawButton" type="Button" parent="."]
-layout_mode = 0
-offset_left = 25.0
-offset_top = 312.0
-offset_right = 102.0
-offset_bottom = 343.0
-text = "PIOCHER"
-
-[node name="EndTurn" type="Button" parent="."]
-layout_mode = 0
-offset_left = 544.0
-offset_top = 298.0
-offset_right = 600.0
-offset_bottom = 352.0
-text = "Fin du
- tour"
-
-[node name="BossHP" type="Label" parent="."]
-layout_mode = 0
-offset_left = 300.0
-offset_top = 69.0
-offset_right = 340.0
-offset_bottom = 92.0

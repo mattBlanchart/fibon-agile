@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="UnitData" load_steps=5 format=3 uid="uid://cv2pwv6wn55jc"]
+
+[ext_resource type="Script" uid="uid://b64xjjg7rdik0" path="res://data/card_data.gd" id="1_g7m41"]
+[ext_resource type="Resource" uid="uid://drjlofj0vhesv" path="res://data/cards/003.tres" id="2_cblhs"]
+[ext_resource type="Script" uid="uid://bku2vvhlwq0xt" path="res://data/unit_data.gd" id="2_tta7b"]
+[ext_resource type="Resource" uid="uid://dypw1dsqjs0ed" path="res://data/cards/002.tres" id="3_r2mis"]
+
+[resource]
+script = ExtResource("2_tta7b")
+label = "Dev. Junior"
+cards = Array[ExtResource("1_g7m41")]([ExtResource("2_cblhs"), ExtResource("3_r2mis"), ExtResource("2_cblhs")])
+metadata/_custom_type_script = "uid://bku2vvhlwq0xt"

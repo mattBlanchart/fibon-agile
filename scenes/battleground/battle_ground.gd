@@ -1,41 +1,44 @@
 # battle_ground.gd
 extends Control
+class_name BattleGround
 
 @onready var score_label: Label = $ScoreLabel
-@onready var play_area: HBoxContainer = $VBoxContainer/PlayPanel/PlayArea
-@onready var hand_area: HBoxContainer = $VBoxContainer/HandPanel/HandArea
+@onready var play_area: HBoxContainer = $GameZone/HBoxContainer/VBoxContainer/PlayPanel/PlayArea
+@onready var hand_area: HBoxContainer = $GameZone/HBoxContainer/VBoxContainer/HandPanel/HandArea
 @onready var currentDamage: int:
 	set(value): # Le setter pour mettre a jour le label automatiquement
 		currentDamage = value
 		$ScoreLabel.text = "Score: %d" % currentDamage
 
 # Point de vie du boss
-@export var boss_hp: int = 10:
+@export var remaining_work: int = 10:
 	set(value):
-		boss_hp = max(0, value) # Evite de descendre en dessous de 0
-		$BossHP.text = str(boss_hp)
+		remaining_work = max(0, value) # Evite de descendre en dessous de 0
+		$UI/BossHP.text = str(remaining_work)
 
 # Le deck du joueur pour ce combat, on evite d'utiliser celui de PlayerState
 var deck: Array[CardData] = []
 
 func _ready() -> void:
-	# Cree un deck random pour le debug
-	var ms: String = ProjectSettings.get_setting("application/run/main_scene")
-	var cs: String = get_tree().current_scene.scene_file_path
-	if OS.has_feature("editor") and cs != ms:
-		PlayerState._battleground_debug()
+	if (PlayerState.units.is_empty()):
+		PlayerState.units.append(load("res://data/unite/dev_0.tres"))
 	
-	# Initialise le label des pv du boss
-	$BossHP.text = str(boss_hp)
+	# Récupere les donnees dans l'etat actuel du jeu
+	var current_pi = GameState.current_pi
+	var current_sprint = GameState.current_sprint
+	remaining_work = GameState.remaining_work
+	
+	# Initialise les labels de l'UI
+	$UI/CurrentPI.text = "PI: %d Sprint: %d" % [current_pi, current_sprint]
+	
+	# Initialise les signaux des boutons
+	$GameZone/HBoxContainer/MarginContainer/VBoxContainer/DrawButton.pressed.connect(_draw_cards)
+	$GameZone/HBoxContainer/MarginContainer2/VBoxContainer/EndTurn.pressed.connect(_end_turn)
 	
 	# Initialise le deck du joueur
-	deck = PlayerState.deck.duplicate()
+	deck = PlayerState.get_current_deck()
 	deck.shuffle() # Randomise la liste des cartes
-	_draw_cards(PlayerState.startingDraw)
-	
-	# Met en place les signaux des boutons
-	$DrawButton.pressed.connect(_draw_cards)
-	$EndTurn.pressed.connect(_end_turn)
+	_draw_cards(PlayerState.startingDraw) # Pioche la main de depart
 
 func _on_card_play_requested(card: Card) -> void:
 	if card.get_parent() == hand_area:
@@ -81,7 +84,7 @@ func _draw_cards(amount: int = 1) -> void:
 # Fonction qui met fin au tour
 func _end_turn() -> void:
 	# Fait les degats au boss
-	boss_hp -= currentDamage
+	remaining_work -= currentDamage
 	
 	# Clear les cartes jouees
 	for child in play_area.get_children():

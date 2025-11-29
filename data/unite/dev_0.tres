@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="UnitData" load_steps=5 format=3 uid="uid://dv7xdhaqqcp4v"]
+
+[ext_resource type="Script" uid="uid://bku2vvhlwq0xt" path="res://data/unit_data.gd" id="1_cii1f"]
+[ext_resource type="Script" uid="uid://b64xjjg7rdik0" path="res://data/card_data.gd" id="1_gl7du"]
+[ext_resource type="Resource" uid="uid://dpienksexcqje" path="res://data/cards/001.tres" id="2_rqdbe"]
+[ext_resource type="Resource" uid="uid://dypw1dsqjs0ed" path="res://data/cards/002.tres" id="3_is7m1"]
+
+[resource]
+script = ExtResource("1_cii1f")
+label = "Dev. fatigué de la WC"
+cards = Array[ExtResource("1_gl7du")]([ExtResource("2_rqdbe"), ExtResource("3_is7m1")])
+metadata/_custom_type_script = "uid://bku2vvhlwq0xt"

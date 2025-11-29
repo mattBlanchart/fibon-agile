@@ -11,6 +11,7 @@ func _ready():
 # pour commencer le jeu
 func _on_start_button_pressed() -> void:
 	if main_scene:
+		GameState.reset()
 		get_tree().change_scene_to_packed(main_scene)
 	else:
 		print("un truc")
