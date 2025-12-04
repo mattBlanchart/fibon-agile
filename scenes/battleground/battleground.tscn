@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://qc051v8j3qtj"]
 
 [ext_resource type="Script" uid="uid://6b2myt3qbdne" path="res://scenes/battleground/battle_ground.gd" id="1_2dohi"]
-[ext_resource type="Texture2D" uid="uid://nllvcsxp1si6" path="res://assets/main/bg.png" id="6_l0ycn"]
+[ext_resource type="Texture2D" uid="uid://nllvcsxp1si6" path="res://assets/imgs/bg.png" id="6_l0ycn"]
 [ext_resource type="Script" uid="uid://cxafhodgbj8fo" path="res://scenes/battleground/SpriteRyu.gd" id="7_jh55q"]
 [ext_resource type="Texture2D" uid="uid://chubm5klky615" path="res://assets/ryu.png" id="7_uu1um"]
 

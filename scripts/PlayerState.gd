@@ -1,6 +1,8 @@
 # PLayerState.gd
 extends Node
 
+var isInit: bool = false
+
 # Nombre de tour max pour battre le bosse
 var maxTurn: int = 3
 var drawByTurn: int = 2
@@ -11,11 +13,19 @@ var startingDraw: int = 5
 # Liste des unite du joueur
 var units: Array[UnitData] = []
 
-func reset() -> void:
-	maxTurn = 3
-	drawByTurn = 2
-	startingDraw = 5
-	units = []
+## Methodes d'initialisation
+func init() -> void:
+	if !isInit:
+		isInit = true
+		
+		maxTurn = 3
+		drawByTurn = 2
+		startingDraw = 5
+		units = []
+
+func reInit() -> void:
+	isInit = false
+	init()
 
 ## Renvoie le deck courant du joueur en fonction des unite recrutes
 func get_current_deck() -> Array[CardData]:

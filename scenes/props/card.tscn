@@ -1,0 +1,61 @@
+[gd_scene load_steps=3 format=3 uid="uid://cnxqp4fmb5le7"]
+
+[ext_resource type="Script" uid="uid://d0rdkj7pfiv0i" path="res://scripts/props/CardVisual.gd" id="1_7hctk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7hctk"]
+bg_color = Color(0.14524308, 0.111475445, 0.31166205, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="Card" type="Control"]
+custom_minimum_size = Vector2(90, 130)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -65.0
+offset_right = 45.0
+offset_bottom = 65.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="Control" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7hctk")
+script = ExtResource("1_7hctk")
+
+[node name="ContentMargin" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Label" type="Label" parent="Control/ContentMargin"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 35
+text = "XXX"
+horizontal_alignment = 1
+vertical_alignment = 1

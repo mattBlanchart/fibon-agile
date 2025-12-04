@@ -1,7 +1,0 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dwu6hpvrbh8ih"]
-
-[ext_resource type="Shader" uid="uid://boetsxmfvbu6n" path="res://scenes/credits/blur.gdshader" id="1_pgwlv"]
-
-[resource]
-shader = ExtResource("1_pgwlv")
-shader_parameter/lod = 4.3910002085725

@@ -1,0 +1,106 @@
+[gd_scene load_steps=6 format=3 uid="uid://c78nhjhmnpocm"]
+
+[ext_resource type="Texture2D" uid="uid://nllvcsxp1si6" path="res://assets/imgs/bg.png" id="1_3dxsk"]
+[ext_resource type="Script" uid="uid://chhalua7j3yg1" path="res://scripts/scenes/sprint_battle.gd" id="1_tg86f"]
+[ext_resource type="FontFile" uid="uid://xrjhvgbsp2gg" path="res://assets/font/PixelOperator.ttf" id="2_uaw8p"]
+[ext_resource type="Script" uid="uid://cu5lwgr7hky3w" path="res://scripts/props/ArcContainer.gd" id="3_uaw8p"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uaw8p"]
+bg_color = Color(0.14406255, 0.14406255, 0.14406255, 0.5019608)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="SprintBattle" type="Control" node_paths=PackedStringArray("hand_area", "play_area", "current_step", "sprint_hp")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tg86f")
+hand_area = NodePath("HandArea")
+play_area = NodePath("PlayAreaContainer/PlayArea")
+current_step = NodePath("TopBar/TopMargin/HBoxContainer/Label")
+sprint_hp = NodePath("SprintHP")
+metadata/_edit_lock_ = true
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_3dxsk")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_lock_ = true
+
+[node name="SprintHP" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.22
+anchor_right = 1.0
+anchor_bottom = 0.22
+offset_bottom = 35.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 25
+text = "XXXXXXX"
+horizontal_alignment = 1
+
+[node name="TopBar" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 31.0
+grow_horizontal = 2
+
+[node name="TopMargin" type="MarginContainer" parent="TopBar"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TopBar/TopMargin"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TopBar/TopMargin/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_uaw8p")
+theme_override_font_sizes/font_size = 30
+text = "PI: 1 / Sprint: 1"
+
+[node name="PlayAreaContainer" type="Panel" parent="."]
+custom_minimum_size = Vector2(0, 140)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2
+anchor_top = 0.65
+anchor_right = 0.8
+anchor_bottom = 0.65
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_uaw8p")
+
+[node name="PlayArea" type="HBoxContainer" parent="PlayAreaContainer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 5.0
+offset_right = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="HandArea" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("3_uaw8p")

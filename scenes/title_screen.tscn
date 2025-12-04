@@ -1,0 +1,108 @@
+[gd_scene load_steps=6 format=3 uid="uid://bmnsqxlqsrsdk"]
+
+[ext_resource type="Script" uid="uid://dyfmyts0a817f" path="res://scripts/scenes/title_screen.gd" id="1_4l16e"]
+[ext_resource type="Texture2D" uid="uid://dctckjcifh84m" path="res://assets/imgs/background.png" id="1_8k5og"]
+[ext_resource type="FontFile" uid="uid://xrjhvgbsp2gg" path="res://assets/font/PixelOperator.ttf" id="1_ch40n"]
+[ext_resource type="Texture2D" uid="uid://dpuwue1lxd3b3" path="res://assets/imgs/logo_ttt.png" id="2_dfj8j"]
+[ext_resource type="Texture2D" uid="uid://7akuuext4onx" path="res://assets/imgs/logo_wintercup.png" id="4_4l16e"]
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4l16e")
+metadata/_edit_lock_ = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_8k5og")
+expand_mode = 2
+stretch_mode = 5
+metadata/_edit_lock_ = true
+
+[node name="GameName" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.2
+anchor_right = 1.0
+anchor_bottom = 0.2
+offset_top = -50.5
+offset_bottom = 50.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_ch40n")
+theme_override_font_sizes/font_size = 100
+text = "Welcom to Fibon'agile"
+horizontal_alignment = 1
+
+[node name="Controller" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_top = 0.6
+anchor_right = 0.6
+anchor_bottom = 0.6
+offset_left = -54.0
+offset_top = -50.5
+offset_right = 54.0
+offset_bottom = 50.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="NewGame" type="Button" parent="Controller"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Nouvelle run"
+
+[node name="Credits" type="Button" parent="Controller"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Crédits"
+
+[node name="Quit" type="Button" parent="Controller"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Quitter"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -160.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="Logo_WinterCup" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+texture = ExtResource("4_4l16e")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Empty" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Logo_TTT" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+texture = ExtResource("2_dfj8j")
+expand_mode = 1
+stretch_mode = 5
+
+[connection signal="pressed" from="Controller/NewGame" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="Controller/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="Controller/Quit" to="." method="_on_quit_pressed"]
