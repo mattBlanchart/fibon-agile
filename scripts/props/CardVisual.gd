@@ -8,6 +8,7 @@ var _base_scale: Vector2 = Vector2.ONE
 var _base_position: Vector2 = Vector2.ZERO
 var _hover_tween: Tween = null
 var _base_root_z_index: int = 0
+var value: int = 0
 
 func _ready() -> void:
 	_base_scale = scale

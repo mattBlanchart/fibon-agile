@@ -11,5 +11,10 @@ extends Node
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	PlayerState.init() # Init le joueur en debug
+	print(PlayerState.units)
+	for unit in PlayerState.units :
+		for card in unit.cards :
+			$HandArea.add_child(card)
+			print(card.value)
 	
 	
