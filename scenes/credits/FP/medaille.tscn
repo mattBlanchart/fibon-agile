@@ -3,5 +3,5 @@
 [ext_resource type="Texture2D" uid="uid://doev1w6qkhen7" path="res://assets/imgs/credits/FP/médaille.png" id="1_o0bd4"]
 
 [node name="Sprite2D" type="Sprite2D"]
-scale = Vector2(0.7, 0.7)
+scale = Vector2(0.25, 0.25)
 texture = ExtResource("1_o0bd4")

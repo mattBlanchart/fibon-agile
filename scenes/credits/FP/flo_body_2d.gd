@@ -19,10 +19,12 @@ func _process(_delta):
 	if turn == finalTurn && !arrivee:
 		#position image flo
 		position=  init_position
-
+		$Sprite2D.rotation -= 90
+		$Sprite2D.flip_h = false
+		$AnimationPlayer.stop()
 		#add & position medaille
 		var medaille = medaille_scene.instantiate()
-		medaille.position = %FloBody2D.position
+		medaille.position = Vector2(%FloBody2D.position.x + 60,%FloBody2D.position.y - 20)
 		$"..".add_child(medaille)
 		arrivee = true
 	elif !arrivee :				
