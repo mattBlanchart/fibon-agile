@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://chcayv6mcrmfp"]
+[gd_scene load_steps=2 format=3 uid="uid://c0geh8y8cgmqu"]
 
-[ext_resource type="Script" path="res://scenes/props/unite.gd" id="1_s5207"]
+[ext_resource type="Script" uid="uid://ddo0ucpyc06t4" path="res://scenes/props/unite.gd" id="1_s5207"]
 
 [node name="Unite" type="Control"]
 layout_mode = 3

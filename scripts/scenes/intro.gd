@@ -1,13 +1,22 @@
 extends Node
 
+var unite_scene = preload("res://scenes/props/unite.tscn")
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	PlayerState.reInit() # Re initialise le state du joueur au valeurs par defaut
+	
+	# Initialise le jour avec l'unité par défaut du dev fatigué de la winter cup
+	var init_unit = unite_scene.instantiate()
+	init_unit.initialize([1,1,2,3], "fatigué")
+	PlayerState.units = [init_unit]
+	
+	# Cinématique de l'intro
 	var audio_reveil := AudioStreamPlayer.new()
 	audio_reveil.stream = load("res://assets/sound/reveil.mp3")
 	add_child(audio_reveil)
 	audio_reveil.play()
 	$bg_dream.pivot_offset = $bg_dream.size / 2
-	PlayerState.reInit() # Re initialise le state du joueur au valeurs par defaut
 	await get_tree().create_timer(5.0).timeout
 	var audio_bus := AudioStreamPlayer.new()
 	audio_bus.stream = load("res://assets/sound/bus_bruit.mp3")
