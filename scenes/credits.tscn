@@ -1,12 +1,70 @@
-[gd_scene load_steps=8 format=3 uid="uid://dvabsgfw4sw77"]
+[gd_scene load_steps=15 format=3 uid="uid://dvabsgfw4sw77"]
 
 [ext_resource type="Texture2D" uid="uid://dctckjcifh84m" path="res://assets/imgs/background.png" id="1_hi4w3"]
 [ext_resource type="Script" uid="uid://dhaxmrayvt75b" path="res://scripts/scenes/credits.gd" id="1_kyhnv"]
 [ext_resource type="FontFile" uid="uid://xrjhvgbsp2gg" path="res://assets/font/PixelOperator.ttf" id="2_y8nor"]
-[ext_resource type="Texture2D" uid="uid://7akuuext4onx" path="res://assets/imgs/logo_wintercup.png" id="3_al82v"]
+[ext_resource type="PackedScene" uid="uid://bfa0vbwx070fl" path="res://scenes/credits/FP/arrivee.tscn" id="4_ih6pn"]
 [ext_resource type="Texture2D" uid="uid://dpuwue1lxd3b3" path="res://assets/imgs/logo_ttt.png" id="4_tlwrt"]
+[ext_resource type="Script" uid="uid://sy764mwnw6fa" path="res://scenes/credits/FP/flo_body_2d.gd" id="5_7lgdl"]
 [ext_resource type="Texture2D" uid="uid://djjg5koxlwtp8" path="res://assets/imgs/credits/MB_sheet.png" id="5_g618n"]
+[ext_resource type="Texture2D" uid="uid://bdhw5t8fejyu6" path="res://assets/imgs/credits/FP/FP_sheet.png" id="6_c6kru"]
 [ext_resource type="Script" uid="uid://cq3kt7hp2rk5r" path="res://scripts/props/AnimatedTextureRect.gd" id="6_t4hkn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qbfqv"]
+size = Vector2(54, 92)
+
+[sub_resource type="Animation" id="Animation_lwbe5"]
+resource_name = "MB"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../CharacterBody2D/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06714336, 0.13333334, 0.2, 0.26666668, 0.3, 0.33333337, 0.36666667, 0.46666667, 0.5, 0.56666666, 0.7, 0.8666667, 1.0333333, 1.1666666, 1.2333333, 1.3666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 1, 1, 2, 2, 2, 3, 3, 4, 5, 6, 7, 3, 7, 5, 7]
+}
+
+[sub_resource type="Animation" id="Animation_17l06"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../CharacterBody2D/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_mxqwe"]
+resource_name = "Ryu"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.3, 0.5, 0.7, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [4, 6, 7, 6, 4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mxqwe"]
+_data = {
+&"MB": SubResource("Animation_lwbe5"),
+&"RESET": SubResource("Animation_17l06"),
+&"Ryu": SubResource("Animation_mxqwe")
+}
 
 [node name="Credits" type="Control"]
 layout_mode = 3
@@ -40,6 +98,13 @@ grow_vertical = 2
 theme_override_constants/separation = 15
 alignment = 1
 
+[node name="Contour" type="StaticBody2D" parent="VBoxContainer"]
+position = Vector2(320, 179)
+
+[node name="CollisionContour2D" type="CollisionPolygon2D" parent="VBoxContainer/Contour"]
+build_mode = 1
+polygon = PackedVector2Array(-320, -179, 960, -179, 960, 541, -320, 541)
+
 [node name="Titre" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_y8nor")
@@ -60,9 +125,33 @@ layout_mode = 2
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/Characters/Florian"]
 layout_mode = 2
 size_flags_vertical = 3
-texture = ExtResource("4_tlwrt")
 expand_mode = 1
 stretch_mode = 5
+
+[node name="Arrivee" parent="VBoxContainer/Characters/Florian/TextureRect" instance=ExtResource("4_ih6pn")]
+position = Vector2(15, -95)
+scale = Vector2(0.5, 0.5)
+
+[node name="FloBody2D" type="CharacterBody2D" parent="VBoxContainer/Characters/Florian/TextureRect"]
+unique_name_in_owner = true
+position = Vector2(120, 160)
+scale = Vector2(3, 3)
+script = ExtResource("5_7lgdl")
+
+[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer/Characters/Florian/TextureRect/FloBody2D"]
+position = Vector2(-1, 1)
+texture = ExtResource("6_c6kru")
+hframes = 3
+vframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VBoxContainer/Characters/Florian/TextureRect/FloBody2D"]
+position = Vector2(-1, 1)
+shape = SubResource("RectangleShape2D_qbfqv")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="VBoxContainer/Characters/Florian/TextureRect/FloBody2D"]
+libraries = {
+&"": SubResource("AnimationLibrary_mxqwe")
+}
 
 [node name="Titre" type="Label" parent="VBoxContainer/Characters/Florian"]
 layout_mode = 2
@@ -224,7 +313,6 @@ alignment = 1
 [node name="Logo_WinterCup" type="TextureRect" parent="VBoxContainer/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
-texture = ExtResource("3_al82v")
 expand_mode = 1
 stretch_mode = 5
 
@@ -255,4 +343,5 @@ texture = ExtResource("4_tlwrt")
 expand_mode = 1
 stretch_mode = 5
 
+[connection signal="player_entered_arrivee" from="VBoxContainer/Characters/Florian/TextureRect/Arrivee" to="." method="_on_arrivee_player_entered_arrivee"]
 [connection signal="pressed" from="VBoxContainer/MarginContainer/HBoxContainer/Empty/Button" to="." method="_on_button_pressed"]
