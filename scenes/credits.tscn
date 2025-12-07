@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dvabsgfw4sw77"]
+[gd_scene load_steps=16 format=3 uid="uid://dvabsgfw4sw77"]
 
 [ext_resource type="Texture2D" uid="uid://dctckjcifh84m" path="res://assets/imgs/background.png" id="1_hi4w3"]
 [ext_resource type="Script" uid="uid://dhaxmrayvt75b" path="res://scripts/scenes/credits.gd" id="1_kyhnv"]
@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dpuwue1lxd3b3" path="res://assets/imgs/logo_ttt.png" id="4_tlwrt"]
 [ext_resource type="Script" uid="uid://sy764mwnw6fa" path="res://scenes/credits/FP/flo_body_2d.gd" id="5_7lgdl"]
 [ext_resource type="Texture2D" uid="uid://djjg5koxlwtp8" path="res://assets/imgs/credits/MB_sheet.png" id="5_g618n"]
-[ext_resource type="Texture2D" uid="uid://bdhw5t8fejyu6" path="res://assets/imgs/credits/FP/FP_sheet.png" id="6_c6kru"]
+[ext_resource type="Texture2D" uid="uid://ds1epgkug0bsv" path="res://assets/imgs/credits/FP/FP_run_sheet.png" id="6_ih6pn"]
 [ext_resource type="Script" uid="uid://cq3kt7hp2rk5r" path="res://scripts/props/AnimatedTextureRect.gd" id="6_t4hkn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qbfqv"]
@@ -42,6 +42,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_mxqwe"]
 resource_name = "Ryu"
@@ -59,8 +71,26 @@ tracks/0/keys = {
 "values": [4, 6, 7, 6, 4]
 }
 
+[sub_resource type="Animation" id="Animation_7lgdl"]
+resource_name = "FP_run"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.099999994, 0.19999999, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mxqwe"]
 _data = {
+&"FP_run": SubResource("Animation_7lgdl"),
 &"MB": SubResource("Animation_lwbe5"),
 &"RESET": SubResource("Animation_17l06"),
 &"Ryu": SubResource("Animation_mxqwe")
@@ -140,7 +170,7 @@ script = ExtResource("5_7lgdl")
 
 [node name="Sprite2D" type="Sprite2D" parent="VBoxContainer/Characters/Florian/TextureRect/FloBody2D"]
 position = Vector2(-1, 1)
-texture = ExtResource("6_c6kru")
+texture = ExtResource("6_ih6pn")
 hframes = 3
 vframes = 2
 
@@ -152,6 +182,7 @@ shape = SubResource("RectangleShape2D_qbfqv")
 libraries = {
 &"": SubResource("AnimationLibrary_mxqwe")
 }
+autoplay = "FP_run"
 
 [node name="Titre" type="Label" parent="VBoxContainer/Characters/Florian"]
 layout_mode = 2

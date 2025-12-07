@@ -35,19 +35,25 @@ func _process(_delta):
 		elif isGoingUp:
 			velocity = Vector2.UP * speed
 				
-		if move_and_slide():
+		if move_and_slide():			
 			if isGoingToRight && !isGoingToLeft && !isGoingDown && !isGoingUp:
 				isGoingToRight = false
 				isGoingDown = true
+				$Sprite2D.rotation += 90
 			elif isGoingDown && !isGoingToRight && !isGoingToLeft  && !isGoingUp:
 				isGoingDown=false
 				isGoingToLeft=true
+				$Sprite2D.rotation -= 90
+				$Sprite2D.flip_h = true
 			elif isGoingToLeft &&!isGoingToRight &&  !isGoingDown && !isGoingUp:
 				isGoingToLeft=false
 				isGoingUp=true
+				$Sprite2D.rotation += 90
 			elif isGoingUp && !isGoingToRight && !isGoingToLeft && !isGoingDown:
 				isGoingToRight=true
 				isGoingUp=false
+				$Sprite2D.rotation -= 90
+				$Sprite2D.flip_h = false
 
 			#print("x = " + str(position.x) + " y = " + str(position.y) + " right = " + str(isGoingToRight) + " left = " + str(isGoingToLeft)
 			#+ " up = " + str(isGoingUp) + " down = " + str(isGoingDown))
