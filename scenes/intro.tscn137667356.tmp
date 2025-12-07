@@ -136,7 +136,7 @@ offset_top = 634.0
 offset_right = 975.0
 offset_bottom = 757.0
 text = "Je me demande si ce pin's vaut vraiment le coup...
-Au moins la journée va être tranquille, j'ai PI planning."
+Enfin bref, la journée va être tranquille, j'ai PI planning."
 horizontal_alignment = 1
 metadata/_edit_lock_ = true
 
@@ -147,7 +147,7 @@ offset_left = 302.0
 offset_top = 634.0
 offset_right = 975.0
 offset_bottom = 757.0
-text = "Le PI planning ne commence que dans 30 minutes.
+text = "Je suis arrivé plus tôt que d'habitude, le PI planning ne commence que dans 30 minutes.
 J'ai un peu de temps pour aller sur la Winter Escape..."
 horizontal_alignment = 1
 metadata/_edit_lock_ = true
@@ -159,7 +159,7 @@ offset_left = 234.0
 offset_top = 665.0
 offset_right = 1108.0
 offset_bottom = 788.0
-text = "Il ests 12h30 et on a pas encore fini...
+text = "Il ests 12h30 et on a pas encore fini les sujets de la matinée,
 j'espère que les food-trucks ne seront pas dévalisés..."
 horizontal_alignment = 1
 metadata/_edit_lock_ = true
