@@ -66,3 +66,7 @@ func _on_mouse_exited() -> void:
 		_base_position,   # RETOUR EXACT À LA BASE
 		hover_duration
 	)
+
+
+
+		
