@@ -8,6 +8,7 @@ extends Node
 @export var current_step: Label
 @export var sprint_hp_max: int = 20
 
+var scene_enfant: PackedScene = preload("res://scenes/props/card.tscn")
 var deck: Array[CardData]
 
 var sprint_hp: int:
@@ -61,7 +62,6 @@ func _draw_cards(amount: int = 1) -> void:
 		# Take the first card from the deck
 		var card_data = deck.pop_front()
 		
-		var scene_enfant: PackedScene = preload("res://scenes/props/card.tscn")
 		var instance_enfant = scene_enfant.instantiate()
 		instance_enfant.data = card_data
 		instance_enfant.play_requested.connect(_on_card_play_requested)
