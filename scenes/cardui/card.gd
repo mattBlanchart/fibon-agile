@@ -1,6 +1,5 @@
 # card.gd
 extends Control
-class_name Card
 
 signal play_requested(card: Card)
 

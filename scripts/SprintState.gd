@@ -11,3 +11,7 @@ var hp:
 		hp_change.emit()
 		
 var deck = Array();
+
+func init():
+	deck.clear()
+	hp = 0
