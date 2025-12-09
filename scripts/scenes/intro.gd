@@ -6,9 +6,6 @@ var unite_scene = preload("res://scenes/props/unite.tscn")
 func _ready() -> void:
 	GameState.reset() # Reset l'etat du jeu
 	
-	# Ajoute l'unite de depart au joueur
-	PlayerState.units.push_front(load("res://data/unite/dev_0.tres"))
-	
 	# Cinématique de l'intro
 	var audio_reveil := AudioStreamPlayer.new()
 	audio_reveil.stream = load("res://assets/sound/reveil.mp3")

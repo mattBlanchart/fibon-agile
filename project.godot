@@ -19,7 +19,7 @@ config/icon="res://icon.svg"
 
 PlayerState="*res://scripts/PlayerState.gd"
 GameState="*res://scripts/GameState.gd"
-CardDatabase="*res://scripts/CardDatabase.gd"
+Database="*res://scripts/Database.gd"
 
 [display]
 

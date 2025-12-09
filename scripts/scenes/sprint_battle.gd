@@ -6,15 +6,18 @@ extends Node
 
 # Labels
 @export var current_step: Label
-@export var sprint_hp_max: int = 20
 
 var scene_enfant: PackedScene = preload("res://scenes/props/card.tscn")
 var deck: Array[CardData]
 
+#    Barre de PV, modifier les variables met a jour la barre directement    #
+var sprint_hp_max: int:
+	set(value):
+		if health_bar: health_bar.max_value = value
+		
 var sprint_hp: int:
 	set(value):
 		sprint_hp = value
-		# Check sur la texture pour eviter les bugs
 		if health_bar: health_bar.value = value
 
 @onready var health_bar: TextureProgressBar = $MarginContainer/TextureProgressBar
@@ -23,9 +26,12 @@ var sprint_hp: int:
 func _ready() -> void:
 	PlayerState.init() # Init le joueur en debug
 	
-	health_bar.max_value = sprint_hp_max
-	health_bar.value = sprint_hp_max
+	# Ici, utiliser GameState.pi et GameState.sprint pour le sprint et le pi courant
+	# Mettre en place la formule pour la difficulter
+	sprint_hp_max = 5 + ((GameState.pi - 1) * 15) + ((GameState.sprint - 1) * 5)
 	sprint_hp = sprint_hp_max
+	
+	current_step.text = "PI: {} / Sprint: {}".format([GameState.pi, GameState.sprint])
 	
 	deck = PlayerState.get_current_deck()
 	
