@@ -8,6 +8,7 @@
 
 [resource]
 script = ExtResource("2_rjeqj")
-label = "Developpeur"
+label = "Dev. Expert"
+code = "de"
 cards = Array[ExtResource("1_s1c2t")]([ExtResource("2_c4agw"), ExtResource("3_f85u6"), ExtResource("4_sfdyh")])
 metadata/_custom_type_script = "uid://bku2vvhlwq0xt"

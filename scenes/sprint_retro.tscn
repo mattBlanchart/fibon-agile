@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2apmw4e3v32e"]
+
+[ext_resource type="Script" uid="uid://8nxdooj1t3as" path="res://scripts/scenes/sprint_retro.gd" id="1_cupo7"]
+
+[node name="SprintRetro" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="NextSprint" type="Button" parent="."]
+layout_mode = 0
+offset_left = 493.0
+offset_top = 246.0
+offset_right = 757.0
+offset_bottom = 324.0
+text = "To next Sprint"
+script = ExtResource("1_cupo7")
+
+[connection signal="pressed" from="NextSprint" to="NextSprint" method="_on_next_sprint_pressed"]
