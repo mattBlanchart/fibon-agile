@@ -3,9 +3,11 @@ extends Node
 
 signal hp_change
 
-var hp = 50:
+var hp:
 	get:
 		return hp
 	set(value):
 		hp = value
 		hp_change.emit()
+		
+var deck = Array();

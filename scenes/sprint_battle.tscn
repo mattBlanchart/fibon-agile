@@ -56,18 +56,20 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -372.5
-offset_right = 372.5
-offset_bottom = 78.0
+offset_left = -250.0
+offset_right = 250.0
+offset_bottom = 155.0
 grow_horizontal = 2
-theme_override_constants/margin_top = 90
+theme_override_constants/margin_top = 100
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="MarginContainer"]
 layout_mode = 2
+max_value = 20.0
 texture_under = ExtResource("4_4xod7")
 texture_progress = ExtResource("5_k2c01")
 
 [node name="SprintHP" type="Label" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.22
@@ -142,3 +144,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("3_uaw8p")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1057.0
+offset_top = 484.0
+offset_right = 1158.0
+offset_bottom = 542.0
