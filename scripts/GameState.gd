@@ -12,6 +12,7 @@ var sprint: int = 1:
 
 func reset() -> void:
 	sprint = 1
+	pi = 1
 	PlayerState.reInit()
 	
 	# Ajoute l'unite de depart au joueur

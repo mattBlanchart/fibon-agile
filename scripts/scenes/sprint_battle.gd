@@ -13,6 +13,7 @@ var deck: Array[CardData]
 #    Barre de PV, modifier les variables met a jour la barre directement    #
 var sprint_hp_max: int:
 	set(value):
+		sprint_hp_max = value
 		if health_bar: health_bar.max_value = value
 		
 var sprint_hp: int:
@@ -28,7 +29,7 @@ func _ready() -> void:
 	
 	# Ici, utiliser GameState.pi et GameState.sprint pour le sprint et le pi courant
 	# Mettre en place la formule pour la difficulter
-	sprint_hp_max = 5 + ((GameState.pi - 1) * 15) + ((GameState.sprint - 1) * 5)
+	sprint_hp_max = 5 + GameState.pi + GameState.sprint
 	sprint_hp = sprint_hp_max
 	
 	current_step.text = "PI: {} / Sprint: {}".format([GameState.pi, GameState.sprint])
