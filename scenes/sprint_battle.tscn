@@ -35,6 +35,7 @@ grow_vertical = 2
 script = ExtResource("1_tg86f")
 hand_area = NodePath("HandArea")
 play_area = NodePath("PlayAreaContainer/PlayArea")
+sprint_hp_max = 5
 metadata/_edit_lock_ = true
 
 [node name="Background" type="TextureRect" parent="."]
@@ -222,3 +223,5 @@ offset_right = 579.0
 offset_bottom = 1090.0
 scale = Vector2(0.125, 0.125)
 texture = ExtResource("12_w7nvf")
+
+[connection signal="pressed" from="Button" to="." method="degat_to_sprint"]

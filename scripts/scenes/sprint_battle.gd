@@ -15,9 +15,6 @@ var sprint_hp: int:
 		sprint_hp = value
 		# Check sur la texture pour eviter les bugs
 		if health_bar: health_bar.value = value
-		
-		if sprint_hp <= 0:
-			get_tree().change_scene_to_file("res://scenes/sprint_retro.tscn")
 
 @onready var health_bar: TextureProgressBar = $MarginContainer/TextureProgressBar
 
@@ -33,17 +30,16 @@ func _ready() -> void:
 	
 	_draw_cards(5)
 	
-	var bouton = $Button
-	bouton.text = "Valider"
-	bouton.pressed.connect(degat_to_sprint)
-	
 func degat_to_sprint():
 	for child in play_area.get_children():
 		sprint_hp -= child.data.value
 		deck.push_back(child.data)
 		child.queue_free()
-		await get_tree().create_timer(0.2).timeout
+		if sprint_hp > 0:
+			await get_tree().create_timer(0.2).timeout
 		
+	if sprint_hp <= 0:
+		get_tree().change_scene_to_file("res://scenes/sprint_retro.tscn")
 	# Pioche les cartes de debut du nouveau tour
 	_draw_cards(PlayerState.drawByTurn)
 		
