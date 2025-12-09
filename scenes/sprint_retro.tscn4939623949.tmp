@@ -26,10 +26,10 @@ metadata/_edit_lock_ = true
 
 [node name="NextSprint" type="Button" parent="."]
 layout_mode = 0
-offset_left = 896.0
-offset_top = 538.0
-offset_right = 1160.0
-offset_bottom = 616.0
+offset_left = 899.0
+offset_top = 537.0
+offset_right = 1163.0
+offset_bottom = 615.0
 text = "To next Sprint"
 script = ExtResource("1_cupo7")
 

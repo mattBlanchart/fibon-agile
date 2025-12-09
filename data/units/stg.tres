@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="UnitData" load_steps=5 format=3 uid="uid://bf5eocaj7lm2h"]
+
+[ext_resource type="Script" uid="uid://b64xjjg7rdik0" path="res://data/card_data.gd" id="1_d3elg"]
+[ext_resource type="Resource" uid="uid://dpienksexcqje" path="res://data/cards/001.tres" id="2_5piyw"]
+[ext_resource type="Resource" uid="uid://cj0niutib0yax" path="res://data/cards/cafe.tres" id="3_d3elg"]
+[ext_resource type="Script" uid="uid://bku2vvhlwq0xt" path="res://data/unit_data.gd" id="5_ixr2g"]
+
+[resource]
+script = ExtResource("5_ixr2g")
+label = "Stagiaire"
+code = "stg"
+poids = 7
+cards = Array[ExtResource("1_d3elg")]([ExtResource("2_5piyw"), ExtResource("2_5piyw"), ExtResource("3_d3elg")])
+metadata/_custom_type_script = "uid://bku2vvhlwq0xt"

@@ -9,5 +9,6 @@
 script = ExtResource("2_tta7b")
 label = "Dev. Junior"
 code = "dj"
+poids = 20
 cards = Array[ExtResource("1_g7m41")]([ExtResource("2_cblhs"), ExtResource("3_r2mis"), ExtResource("2_cblhs")])
 metadata/_custom_type_script = "uid://bku2vvhlwq0xt"
