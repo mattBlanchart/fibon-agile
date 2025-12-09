@@ -11,11 +11,7 @@ var drawByTurn: int = 2
 var startingDraw: int = 5
 
 # Liste des unite du joueur
-var units = []:
-	get:	
-		return units
-	set(value):
-		units = value
+var units = []
 
 ## Methodes d'initialisation
 func init() -> void:

@@ -4,12 +4,10 @@ var unite_scene = preload("res://scenes/props/unite.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	PlayerState.reInit() # Re initialise le state du joueur au valeurs par defaut
+	GameState.reset() # Reset l'etat du jeu
 	
-	# Initialise le jour avec l'unité par défaut du dev fatigué de la winter cup
-	var init_unit = unite_scene.instantiate()
-	init_unit.initialize([1,1,2,3], "fatigué")
-	PlayerState.units = [init_unit]
+	# Ajoute l'unite de depart au joueur
+	PlayerState.units.push_front(load("res://data/unite/dev_0.tres"))
 	
 	# Cinématique de l'intro
 	var audio_reveil := AudioStreamPlayer.new()

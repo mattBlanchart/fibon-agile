@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cnxqp4fmb5le7"]
 
 [ext_resource type="Script" uid="uid://d0rdkj7pfiv0i" path="res://scripts/props/CardVisual.gd" id="1_7hctk"]
-[ext_resource type="Script" uid="uid://bx6x7cruqm6rx" path="res://scenes/props/cardHandling.gd" id="1_i0gbq"]
+[ext_resource type="Script" uid="uid://ln1rhrjxcih" path="res://scripts/props/CardContainer.gd" id="1_i0gbq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7hctk"]
 bg_color = Color(1, 1, 1, 1)

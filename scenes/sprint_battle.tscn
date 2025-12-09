@@ -25,7 +25,7 @@ corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
-[node name="SprintBattle" type="Control"]
+[node name="SprintBattle" type="Control" node_paths=PackedStringArray("hand_area", "play_area")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -33,6 +33,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_tg86f")
+hand_area = NodePath("HandArea")
+play_area = NodePath("PlayAreaContainer/PlayArea")
 metadata/_edit_lock_ = true
 
 [node name="Background" type="TextureRect" parent="."]
@@ -183,6 +185,7 @@ offset_left = 1057.0
 offset_top = 484.0
 offset_right = 1158.0
 offset_bottom = 542.0
+text = "Valider"
 
 [node name="Unite_One" type="TextureRect" parent="."]
 layout_mode = 0
