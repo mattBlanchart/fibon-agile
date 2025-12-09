@@ -1,12 +1,17 @@
-[gd_scene load_steps=9 format=3 uid="uid://c78nhjhmnpocm"]
+[gd_scene load_steps=14 format=3 uid="uid://c78nhjhmnpocm"]
 
 [ext_resource type="Script" uid="uid://chhalua7j3yg1" path="res://scripts/scenes/sprint_battle.gd" id="1_tg86f"]
 [ext_resource type="Texture2D" uid="uid://djb82wtjelyrj" path="res://assets/imgs/bg_battle.png" id="2_tg86f"]
 [ext_resource type="FontFile" uid="uid://xrjhvgbsp2gg" path="res://assets/font/PixelOperator.ttf" id="2_uaw8p"]
 [ext_resource type="Texture2D" uid="uid://bmsx2e1khevsg" path="res://assets/imgs/chat_boss.png" id="3_bbole"]
+[ext_resource type="Texture2D" uid="uid://dchng524l8q16" path="res://assets/imgs/barre_boss.png" id="3_k2c01"]
 [ext_resource type="Script" uid="uid://cu5lwgr7hky3w" path="res://scripts/props/ArcContainer.gd" id="3_uaw8p"]
 [ext_resource type="Texture2D" uid="uid://clwjsdss8pese" path="res://assets/imgs/sprintBattle/progress_bar_background.png" id="4_4xod7"]
 [ext_resource type="Texture2D" uid="uid://c7v6bno8qmnyp" path="res://assets/imgs/sprintBattle/progress_bar.png" id="5_k2c01"]
+[ext_resource type="Texture2D" uid="uid://iaauk6sttwl3" path="res://assets/imgs/dev_fatigué.png" id="9_ge1rc"]
+[ext_resource type="Texture2D" uid="uid://0gf1pqtd62oy" path="res://assets/imgs/dev_senior.png" id="10_syk8j"]
+[ext_resource type="Texture2D" uid="uid://cwntnls8pjb1n" path="res://assets/imgs/dev_junior.png" id="11_gvmox"]
+[ext_resource type="Texture2D" uid="uid://dsuax8tx7sh7k" path="res://assets/imgs/stagiaire.png" id="12_w7nvf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uaw8p"]
 bg_color = Color(0.14406255, 0.14406255, 0.14406255, 0.5019608)
@@ -42,7 +47,16 @@ expand_mode = 1
 stretch_mode = 5
 metadata/_edit_lock_ = true
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="BossBar" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 356.0
+offset_top = 85.0
+offset_right = 1265.0
+offset_bottom = 230.0
+scale = Vector2(0.64, 0.64)
+texture = ExtResource("3_k2c01")
+
+[node name="Boss" type="TextureRect" parent="."]
 layout_mode = 0
 offset_left = 507.0
 offset_top = 157.0
@@ -56,10 +70,12 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -250.0
-offset_right = 250.0
-offset_bottom = 155.0
+offset_left = -206.90997
+offset_top = 74.225
+offset_right = 293.0901
+offset_bottom = 219.225
 grow_horizontal = 2
+scale = Vector2(0.465, 0.465)
 theme_override_constants/margin_top = 100
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="MarginContainer"]
@@ -68,20 +84,36 @@ max_value = 20.0
 texture_under = ExtResource("4_4xod7")
 texture_progress = ExtResource("5_k2c01")
 
-[node name="SprintHP" type="Label" parent="."]
-visible = false
+[node name="ShieldBug" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.22
 anchor_right = 1.0
 anchor_bottom = 0.22
-offset_left = 3.0
-offset_top = -64.399994
-offset_right = 3.0
-offset_bottom = -29.399994
+offset_left = 725.0
+offset_top = -44.399994
+offset_right = -498.0
+offset_bottom = -9.399994
 grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 25
-text = "XXXXXXX"
+text = "000"
+horizontal_alignment = 1
+
+[node name="AttackFatigue" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.22
+anchor_right = 1.0
+anchor_bottom = 0.22
+offset_left = 850.0
+offset_top = -44.399994
+offset_right = -373.0
+offset_bottom = -9.399994
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "000"
 horizontal_alignment = 1
 
 [node name="TopBar" type="PanelContainer" parent="."]
@@ -151,3 +183,39 @@ offset_left = 1057.0
 offset_top = 484.0
 offset_right = 1158.0
 offset_bottom = 542.0
+
+[node name="Unite_One" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 282.0
+offset_right = 578.0
+offset_bottom = 850.0
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("9_ge1rc")
+
+[node name="Unite_Two" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 362.0
+offset_right = 578.0
+offset_bottom = 930.0
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("10_syk8j")
+
+[node name="Unite_Three" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 442.0
+offset_right = 579.0
+offset_bottom = 1010.0
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("11_gvmox")
+
+[node name="Unite_Four" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 522.0
+offset_right = 579.0
+offset_bottom = 1090.0
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("12_w7nvf")
