@@ -7,6 +7,7 @@ class_name UnitData
 ## Nom de l'unit
 @export var label: String = ""
 @export var code: String = ""
+@export var add_bug: int = 0
 ## Est ce que l'unit est upgrade
 @export var is_upgraded: bool = false
 

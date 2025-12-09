@@ -9,5 +9,6 @@
 script = ExtResource("1_cii1f")
 label = "Dev. fatigué de la WC"
 code = "dwc"
+add_bug = 5
 cards = Array[ExtResource("1_gl7du")]([ExtResource("2_rqdbe"), ExtResource("3_is7m1")])
 metadata/_custom_type_script = "uid://bku2vvhlwq0xt"

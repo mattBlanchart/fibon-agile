@@ -31,5 +31,8 @@ func reInit() -> void:
 func get_current_deck() -> Array[CardData]:
 	var deck: Array[CardData] = []
 	for unit in units:
-		deck.append_array(unit.cards.duplicate())
+		for card in unit.cards:
+			var new_card = card.duplicate()
+			new_card.unit = unit
+			deck.append(new_card)
 	return deck
