@@ -11,5 +11,6 @@ label = "Dev. fatigué de la WC"
 code = "dwc"
 add_bug = 5
 poids = 2
+sprite = "dev_fatigué.png"
 cards = Array[ExtResource("1_gl7du")]([ExtResource("2_rqdbe"), ExtResource("3_is7m1")])
 metadata/_custom_type_script = "uid://bku2vvhlwq0xt"

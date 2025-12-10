@@ -10,5 +10,6 @@ script = ExtResource("5_ixr2g")
 label = "Stagiaire"
 code = "stg"
 poids = 7
+sprite = "stagiaire.png"
 cards = Array[ExtResource("1_d3elg")]([ExtResource("2_5piyw"), ExtResource("2_5piyw"), ExtResource("3_d3elg")])
 metadata/_custom_type_script = "uid://bku2vvhlwq0xt"

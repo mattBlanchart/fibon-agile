@@ -1,7 +1,5 @@
 extends Node
 
-var unite_scene = preload("res://scenes/props/unite.tscn")
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	GameState.reset() # Reset l'etat du jeu

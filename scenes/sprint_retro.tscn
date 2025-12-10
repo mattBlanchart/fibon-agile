@@ -1,7 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://c2apmw4e3v32e"]
+[gd_scene load_steps=4 format=3 uid="uid://c2apmw4e3v32e"]
 
 [ext_resource type="Script" uid="uid://8nxdooj1t3as" path="res://scripts/scenes/sprint_retro.gd" id="1_cupo7"]
 [ext_resource type="Texture2D" uid="uid://djb82wtjelyrj" path="res://assets/imgs/bg_battle.png" id="1_dc456"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dc456"]
+bg_color = Color(0.14406255, 0.14406255, 0.14406255, 0.5019608)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.015686275, 0, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [node name="SprintRetro" type="Control"]
 layout_mode = 3
@@ -32,5 +44,37 @@ offset_right = 1160.0
 offset_bottom = 616.0
 text = "To next Sprint"
 script = ExtResource("1_cupo7")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(700, 200)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -70.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayAreaContainer" type="Panel" parent="MarginContainer"]
+custom_minimum_size = Vector2(0, 140)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dc456")
+
+[node name="SelectionArea" type="HBoxContainer" parent="MarginContainer/PlayAreaContainer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 36.0
+offset_top = -66.5
+offset_right = -38.0
+offset_bottom = 63.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
 
 [connection signal="pressed" from="NextSprint" to="NextSprint" method="_on_next_sprint_pressed"]

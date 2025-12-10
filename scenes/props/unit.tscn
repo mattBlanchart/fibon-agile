@@ -1,0 +1,64 @@
+[gd_scene load_steps=5 format=3 uid="uid://c0geh8y8cgmqu"]
+
+[ext_resource type="Script" uid="uid://ddo0ucpyc06t4" path="res://scripts/props/unit.gd" id="1_bo7ki"]
+[ext_resource type="Resource" uid="uid://dv7xdhaqqcp4v" path="res://data/units/dev_0.tres" id="2_h0s5a"]
+[ext_resource type="Texture2D" uid="uid://cwntnls8pjb1n" path="res://assets/imgs/dev_junior.png" id="2_yvg7w"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yvg7w"]
+bg_color = Color(0.14406255, 0.14406255, 0.14406255, 0.5019608)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.015686275, 0, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="Unite" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bo7ki")
+data = ExtResource("2_h0s5a")
+
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_top = -1.0
+offset_right = 568.0
+offset_bottom = 567.0
+texture = ExtResource("2_yvg7w")
+
+[node name="PlayAreaContainer" type="Panel" parent="."]
+custom_minimum_size = Vector2(560, 140)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -159.0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_yvg7w")
+
+[node name="CardArea" type="HBoxContainer" parent="PlayAreaContainer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 36.0
+offset_top = -66.5
+offset_right = -38.0
+offset_bottom = 63.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+alignment = 1
