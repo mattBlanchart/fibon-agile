@@ -59,6 +59,11 @@ func _ready() -> void:
 	
 	_draw_cards(5)
 	
+	for unit in PlayerState.units:
+		var sprite = TextureRect.new()
+		sprite.set_texture(load("res://assets/imgs/" + unit.sprite))
+		$VSpriteUnitContainer.add_child(sprite)
+	
 func degat_to_sprint():
 	$Button.disabled = true
 	# Evite de calculer les tours sans cartes

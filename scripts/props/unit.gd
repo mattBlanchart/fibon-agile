@@ -11,7 +11,6 @@ func _ready() -> void:
 	card_area = $PlayAreaContainer/CardArea
 	
 	var sprite:CompressedTexture2D = load("res://assets/imgs/" + data.sprite)
-	print("res://assets/imgs/" + data.sprite)
 	$TextureRect.set_texture(sprite)
 	
 	for card in data.cards:
