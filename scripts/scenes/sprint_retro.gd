@@ -6,7 +6,7 @@ var unit_scene_pre = preload("res://scenes/props/unit.tscn")
 	
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var selection_area = $"../MarginContainer/PlayAreaContainer/SelectionArea"
+	var selection_area = $"../PlayAreaContainer/SelectionArea"
 	var recompense_unit = Database.units.duplicate()
 	recompense_unit.erase("dwc")
 	
@@ -17,6 +17,7 @@ func _ready() -> void:
 
 		var unit_scene = unit_scene_pre.instantiate()
 		unit_scene.data = units[i]
+		unit_scene.choose_requested.connect(_on_unit_selected)
 		selection_area.add_child(unit_scene)
 	
 		
@@ -37,3 +38,9 @@ func _getWeightListFromDictionary(units: Dictionary[String, UnitData]) -> Packed
 		unit_weight_list.append(units[key].poids)
 		
 	return PackedFloat32Array(unit_weight_list)
+
+#Pour l'instant, j'ai mis la scène de battle juste après avoir cliqué l'unité
+# c'est pas smooth mais c'était pour avancer dans le dev !
+func _on_unit_selected(unit: Unit) -> void:
+	PlayerState.units.append(unit.data)
+	_on_next_sprint_pressed()

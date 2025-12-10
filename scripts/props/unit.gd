@@ -1,8 +1,10 @@
-extends Control
+extends Node
+class_name Unit
+
+signal choose_requested(unit: UnitData)
 
 @export var data: UnitData
 var card_area 
-
 var card_scene = preload("res://scenes/props/card.tscn")
 
 func _ready() -> void:
@@ -12,10 +14,11 @@ func _ready() -> void:
 	print("res://assets/imgs/" + data.sprite)
 	$TextureRect.set_texture(sprite)
 	
-	
-	print(data.cards)
 	for card in data.cards:
 		var card_scene = card_scene.instantiate()
-		print(card.value)
 		card_scene.data = card			
 		card_area.add_child(card_scene)
+		
+func _gui_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		choose_requested.emit(self)
