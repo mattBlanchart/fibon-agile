@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="UnitData" load_steps=4 format=3 uid="uid://c8siwwsvv0d4a"]
+
+[ext_resource type="Script" uid="uid://b64xjjg7rdik0" path="res://data/card_data.gd" id="1_4arbp"]
+[ext_resource type="Resource" uid="uid://ce161pw353alm" path="res://data/cards/021.tres" id="2_uk4f3"]
+[ext_resource type="Script" uid="uid://bku2vvhlwq0xt" path="res://data/unit_data.gd" id="5_0wsvx"]
+
+[resource]
+script = ExtResource("5_0wsvx")
+label = "Architecte"
+code = "arch"
+poids = 1
+sprite = "architecte.png"
+cards = Array[ExtResource("1_4arbp")]([ExtResource("2_uk4f3")])
+metadata/_custom_type_script = "uid://bku2vvhlwq0xt"

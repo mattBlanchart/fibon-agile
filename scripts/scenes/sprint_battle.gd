@@ -48,7 +48,7 @@ func _ready() -> void:
 	
 	# Ici, utiliser GameState.pi et GameState.sprint pour le sprint et le pi courant
 	# Mettre en place la formule pour la difficulter
-	sprint_hp_max = 5 + GameState.pi + GameState.sprint
+	sprint_hp_max = ((GameState.pi + GameState.sprint)*5 -5)*(GameState.pi + GameState.sprint)/Database.pi_size
 	sprint_hp_max += GameState.bugs
 	GameState.bugs = 0
 	sprint_hp = sprint_hp_max

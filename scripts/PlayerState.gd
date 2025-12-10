@@ -5,7 +5,7 @@ var isInit: bool = false
 
 # Nombre de tour max pour battre le bosse
 var maxTurn: int = 3
-var drawByTurn: int = 2
+var drawByTurn: int = 4
 
 # Nombre de carte piocher au début du combat
 var startingDraw: int = 5
@@ -19,7 +19,7 @@ func init() -> void:
 		isInit = true
 		
 		maxTurn = 3
-		drawByTurn = 2
+		drawByTurn = 4
 		startingDraw = 5
 		units = []
 
