@@ -8,7 +8,10 @@ signal play_requested(card: Card)
 @onready var label: Label = $Control/ContentMargin/Label
 
 func _ready() -> void:
-	if data:
+	if data.value == 0:
+		$"Control/ContentMargin/café".visible = true
+		$Control/ContentMargin/Label.visible = false
+	else:
 		label.text = str(data.value)
 		
 func _gui_input(event: InputEvent) -> void:

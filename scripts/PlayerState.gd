@@ -19,7 +19,7 @@ func init() -> void:
 		isInit = true
 		
 		maxTurn = 3
-		drawByTurn = 4
+		drawByTurn = 5
 		startingDraw = 5
 		units = []
 
