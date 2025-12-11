@@ -60,4 +60,5 @@ offset_bottom = 443.297
 scale = Vector2(0.5, 0.5)
 theme_override_constants/separation = 525
 
+[connection signal="mouse_exited" from="." to="NextSprint" method="_on_sprint_retro_mouse_exited"]
 [connection signal="pressed" from="NextSprint" to="NextSprint" method="_on_next_sprint_pressed"]

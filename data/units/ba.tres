@@ -12,5 +12,6 @@ label = "BA"
 code = "ba"
 poids = 5
 sprite = "ba.png"
+description = "BA. Soit il valide, soit ça repart en dev. (trad: Les cartes négatives soignent le sprint)"
 cards = Array[ExtResource("1_chh81")]([ExtResource("2_upum3"), ExtResource("3_em66r"), ExtResource("4_qjkru")])
 metadata/_custom_type_script = "uid://bku2vvhlwq0xt"

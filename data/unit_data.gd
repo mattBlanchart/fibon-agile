@@ -10,6 +10,7 @@ class_name UnitData
 @export var add_bug: int = 0
 @export var poids: int = 0
 @export var sprite: String = ""
+@export var description: String = ""
 
 ## Est ce que l'unit est upgrade
 @export var is_upgraded: bool = false

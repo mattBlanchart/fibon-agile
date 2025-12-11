@@ -10,5 +10,6 @@ label = "Architecte"
 code = "arch"
 poids = 1
 sprite = "architecte.png"
+description = "Architecte. Quand il intervient, ce n'est pas pour rigoler, il réalise d'énormes points du sprint."
 cards = Array[ExtResource("1_4arbp")]([ExtResource("2_uk4f3")])
 metadata/_custom_type_script = "uid://bku2vvhlwq0xt"

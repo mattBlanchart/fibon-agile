@@ -11,5 +11,6 @@ label = "Dev. Junior"
 code = "dj"
 poids = 13
 sprite = "dev_junior.png"
+description = "Dev junior. Il peut réaliser des points du sprint."
 cards = Array[ExtResource("1_g7m41")]([ExtResource("2_cblhs"), ExtResource("3_r2mis"), ExtResource("2_cblhs")])
 metadata/_custom_type_script = "uid://bku2vvhlwq0xt"

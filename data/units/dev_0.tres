@@ -12,5 +12,6 @@ code = "dwc"
 add_bug = 2
 poids = 2
 sprite = "dev_fatigué.png"
+description = "Dev épuisé par  la winter cup. Il ne peut faire que quelques points et malgré celà, il apporte bug..."
 cards = Array[ExtResource("1_gl7du")]([ExtResource("2_rqdbe"), ExtResource("3_is7m1")])
 metadata/_custom_type_script = "uid://bku2vvhlwq0xt"

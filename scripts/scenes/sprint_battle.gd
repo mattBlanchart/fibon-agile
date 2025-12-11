@@ -12,6 +12,7 @@ extends Node
 @export var current_step: Label
 
 var scene_enfant: PackedScene = preload("res://scenes/props/card.tscn")
+var scene_unit: PackedScene = preload("res://scenes/props/unit.tscn")
 var deck: Array[CardData]
 
 var bug_value: int:
@@ -59,7 +60,7 @@ func _ready() -> void:
 	
 	_draw_cards(5)
 	
-	for unit in PlayerState.units:
+	for unit in PlayerState.units:		
 		var sprite = TextureRect.new()
 		sprite.set_texture(load("res://assets/imgs/" + unit.sprite))
 		$VSpriteUnitContainer.add_child(sprite)
@@ -87,6 +88,7 @@ func degat_to_sprint():
 			
 		# Pioche les cartes de debut du nouveau tour
 		_draw_cards(PlayerState.drawByTurn)
+
 	$Button.disabled = false
 		
 ##########################################################################"	
@@ -106,7 +108,7 @@ func _draw_cards(amount: int = 1) -> void:
 		
 		# Take the first card from the deck
 		var card_data = deck.pop_front()
-		
+	
 		var instance_enfant = scene_enfant.instantiate()
 		instance_enfant.data = card_data
 		instance_enfant.play_requested.connect(_on_card_play_requested)

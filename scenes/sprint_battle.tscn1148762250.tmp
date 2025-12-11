@@ -1,0 +1,236 @@
+[gd_scene load_steps=10 format=3 uid="uid://c78nhjhmnpocm"]
+
+[ext_resource type="Script" uid="uid://chhalua7j3yg1" path="res://scripts/scenes/sprint_battle.gd" id="1_tg86f"]
+[ext_resource type="Texture2D" uid="uid://djb82wtjelyrj" path="res://assets/imgs/bg_battle.png" id="2_tg86f"]
+[ext_resource type="FontFile" uid="uid://xrjhvgbsp2gg" path="res://assets/font/PixelOperator.ttf" id="2_uaw8p"]
+[ext_resource type="Texture2D" uid="uid://bmsx2e1khevsg" path="res://assets/imgs/chat_boss.png" id="3_bbole"]
+[ext_resource type="Texture2D" uid="uid://dchng524l8q16" path="res://assets/imgs/barre_boss.png" id="3_k2c01"]
+[ext_resource type="Script" uid="uid://cu5lwgr7hky3w" path="res://scripts/props/ArcContainer.gd" id="3_uaw8p"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0vs2u"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ft3d8"]
+bg_color = Color(0.13333334, 0.69411767, 0.29803923, 1)
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uaw8p"]
+bg_color = Color(0.14406255, 0.14406255, 0.14406255, 0.5019608)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.015686275, 0, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="SprintBattle" type="Control" node_paths=PackedStringArray("hand_area", "play_area", "hplabel", "bugs", "fatigue", "health_bar", "current_step")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tg86f")
+hand_area = NodePath("HandArea")
+play_area = NodePath("PlayAreaContainer/PlayArea")
+hplabel = NodePath("BossHPBar/ProgressBar/HPLabel")
+bugs = NodePath("BossHPBar/ShieldBug")
+fatigue = NodePath("BossHPBar/AttackFatigue")
+health_bar = NodePath("BossHPBar/ProgressBar")
+current_step = NodePath("TopBar/TopMargin/HBoxContainer/Label")
+metadata/_edit_lock_ = true
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_tg86f")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_lock_ = true
+
+[node name="BossHPBar" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -285.0
+offset_top = 55.0
+offset_right = 665.0
+offset_bottom = 204.0
+grow_horizontal = 2
+scale = Vector2(0.6, 0.6)
+
+[node name="Background" type="TextureRect" parent="BossHPBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_k2c01")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_lock_ = true
+
+[node name="ProgressBar" type="ProgressBar" parent="BossHPBar"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 135.0
+offset_top = -20.0
+offset_right = 515.0001
+offset_bottom = 19.999893
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_0vs2u")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ft3d8")
+value = 50.0
+show_percentage = false
+metadata/_edit_lock_ = true
+
+[node name="HPLabel" type="Label" parent="BossHPBar/ProgressBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 28
+text = "X/Y"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="ShieldBug" type="Label" parent="BossHPBar"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -330.0
+offset_top = -17.5
+offset_right = -287.0
+offset_bottom = 17.5
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "000"
+horizontal_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="AttackFatigue" type="Label" parent="BossHPBar"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -135.0
+offset_top = -17.5
+offset_right = -92.0
+offset_bottom = 17.5
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "000"
+horizontal_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Boss" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 507.0
+offset_top = 157.0
+offset_right = 829.5
+offset_bottom = 469.0
+texture = ExtResource("3_bbole")
+expand_mode = 1
+
+[node name="TopBar" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 31.0
+grow_horizontal = 2
+
+[node name="TopMargin" type="MarginContainer" parent="TopBar"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TopBar/TopMargin"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TopBar/TopMargin/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_uaw8p")
+theme_override_font_sizes/font_size = 30
+text = "PI: 1 / Sprint: 1"
+
+[node name="PlayAreaContainer" type="Panel" parent="."]
+custom_minimum_size = Vector2(0, 140)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2
+anchor_top = 0.65
+anchor_right = 0.8
+anchor_bottom = 0.65
+offset_left = 3.0
+offset_top = -27.99997
+offset_right = 3.0
+offset_bottom = 131.00003
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_uaw8p")
+
+[node name="PlayArea" type="HBoxContainer" parent="PlayAreaContainer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 36.0
+offset_top = -66.5
+offset_right = -38.0
+offset_bottom = 63.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="HandArea" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("3_uaw8p")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1057.0
+offset_top = 484.0
+offset_right = 1158.0
+offset_bottom = 542.0
+text = "Valider"
+
+[node name="VSpriteUnitContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 156.0
+offset_right = 909.33325
+offset_bottom = 3042.6665
+scale = Vector2(0.15, 0.15)
+alignment = 1
+
+[connection signal="pressed" from="Button" to="." method="degat_to_sprint"]
