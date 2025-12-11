@@ -226,10 +226,10 @@ text = "Valider"
 
 [node name="VSpriteUnitContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 36.0
-offset_top = 156.0
-offset_right = 909.33325
-offset_bottom = 3042.6665
+offset_left = 8.0
+offset_top = 138.0
+offset_right = 528.0
+offset_bottom = 3024.6665
 scale = Vector2(0.15, 0.15)
 alignment = 1
 
