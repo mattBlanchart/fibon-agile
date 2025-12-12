@@ -48,6 +48,13 @@ var sprint_hp: int:
 func _ready() -> void:
 	PlayerState.init() # Init le joueur en debug
 	
+	await get_tree().create_timer(1.0).timeout
+	var music := AudioStreamPlayer.new()
+	music.stream = load("res://assets/sound/music_bg.mp3")
+	music.stream.loop = true
+	add_child(music)
+	music.play()
+	
 	# Ici, utiliser GameState.pi et GameState.sprint pour le sprint et le pi courant
 	# Mettre en place la formule pour la difficulter
 	sprint_hp_max = ((GameState.pi + GameState.sprint)*5 -5)*(GameState.pi + GameState.sprint)/Database.pi_size - 1

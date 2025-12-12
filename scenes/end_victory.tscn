@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://dxvbn34fu0lne"]
+
+[ext_resource type="Texture2D" uid="uid://dctckjcifh84m" path="res://assets/imgs/background.png" id="1_cbgbp"]
+[ext_resource type="Script" uid="uid://dg4nthlo362o6" path="res://scenes/end_victory.gd" id="1_w1nva"]
+[ext_resource type="Texture2D" uid="uid://doev1w6qkhen7" path="res://assets/imgs/credits/FP/médaille.png" id="2_w1nva"]
+[ext_resource type="FontFile" uid="uid://xrjhvgbsp2gg" path="res://assets/font/PixelOperator.ttf" id="3_o632h"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_w1nva")
+
+[node name="bckground" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -270.0
+offset_top = -64.0
+offset_right = 1650.0
+offset_bottom = 1016.0
+texture = ExtResource("1_cbgbp")
+
+[node name="medal" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 340.0
+offset_top = -40.0
+offset_right = 952.0
+offset_bottom = 572.0
+texture = ExtResource("2_w1nva")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 270.0
+offset_top = 439.0
+offset_right = 1022.0
+offset_bottom = 712.0
+theme_override_fonts/font = ExtResource("3_o632h")
+theme_override_font_sizes/font_size = 251
+text = "VICTORY"
