@@ -10,6 +10,7 @@ var sprint: int = 1:
 		else:
 			sprint = value
 var bugs: int = 0
+var fatigue: int = 0
 
 func reset() -> void:
 	sprint = 1
