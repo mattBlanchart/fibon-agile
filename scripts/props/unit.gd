@@ -15,7 +15,8 @@ func _ready() -> void:
 	
 	for card in data.cards:
 		var card_scene = card_scene.instantiate()
-		card_scene.data = card			
+		card_scene.data = card
+		card_scene.get_children()[0].get_children()[0].set_texture(load("res://assets/imgs/" + data.sprite))	
 		card_area.add_child(card_scene)
 		
 	$BulleInfo/RichTextLabel.text  = data.description

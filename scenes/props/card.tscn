@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cnxqp4fmb5le7"]
+[gd_scene load_steps=6 format=3 uid="uid://cnxqp4fmb5le7"]
 
 [ext_resource type="Script" uid="uid://d0rdkj7pfiv0i" path="res://scripts/props/CardVisual.gd" id="1_7hctk"]
 [ext_resource type="Script" uid="uid://ln1rhrjxcih" path="res://scripts/props/CardContainer.gd" id="1_i0gbq"]
 [ext_resource type="Texture2D" uid="uid://cxteg06b60h0g" path="res://assets/imgs/café.png" id="3_g32dk"]
+[ext_resource type="Texture2D" uid="uid://cwntnls8pjb1n" path="res://assets/imgs/dev_junior.png" id="4_l17kt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7hctk"]
 bg_color = Color(1, 1, 1, 1)
@@ -44,6 +45,15 @@ mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_7hctk")
 script = ExtResource("1_7hctk")
 
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 10.0
+offset_right = 45.0
+offset_bottom = 43.0
+texture = ExtResource("4_l17kt")
+expand_mode = 1
+
 [node name="ContentMargin" type="MarginContainer" parent="Control"]
 layout_mode = 1
 anchors_preset = 15
@@ -57,6 +67,7 @@ theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
 [node name="Label" type="Label" parent="Control/ContentMargin"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 1
 mouse_filter = 1
@@ -67,11 +78,12 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="café" type="TextureRect" parent="Control/ContentMargin"]
+unique_name_in_owner = true
 visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("3_g32dk")
 
-[connection signal="gui_input" from="Control" to="." method="_gui_input"]
 [connection signal="gui_input" from="Control" to="." method="_on_gui_input"]
+[connection signal="gui_input" from="Control" to="." method="_gui_input"]

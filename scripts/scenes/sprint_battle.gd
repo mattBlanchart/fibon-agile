@@ -111,6 +111,7 @@ func _draw_cards(amount: int = 1) -> void:
 	
 		var instance_enfant = scene_enfant.instantiate()
 		instance_enfant.data = card_data
+		instance_enfant.get_children()[0].get_children()[0].set_texture(load("res://assets/imgs/" + card_data.unit.sprite))			
 		instance_enfant.play_requested.connect(_on_card_play_requested)
 		
 		hand_area.add_child(instance_enfant)

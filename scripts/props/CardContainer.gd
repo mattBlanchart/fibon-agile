@@ -5,12 +5,12 @@ signal play_requested(card: Card)
 
 @export var data: CardData
 
-@onready var label: Label = $Control/ContentMargin/Label
+@onready var label: Label = %Label
 
 func _ready() -> void:
 	if data.value == 0:
-		$"Control/ContentMargin/café".visible = true
-		$Control/ContentMargin/Label.visible = false
+		%"café".visible = true
+		label.visible = false
 	else:
 		label.text = str(data.value)
 		
