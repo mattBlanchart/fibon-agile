@@ -12,6 +12,8 @@ code = "stg"
 add_bug = 2
 poids = 7
 sprite = "stagiaire.png"
-description = "Stagiaire. Il réalise de faibles points du sprint mais peut apporter le café permettant de réduire la fatigue. Attention, il amène également des bugs."
+description = "Stagiaire. 
+Peu efficace et ajoute bug mais amène le café réduisant la fatigue.
+"
 cards = Array[ExtResource("1_d3elg")]([ExtResource("2_5piyw"), ExtResource("3_d3elg"), ExtResource("2_5piyw")])
 metadata/_custom_type_script = "uid://bku2vvhlwq0xt"

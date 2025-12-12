@@ -81,17 +81,22 @@ theme_override_constants/separation = 10
 alignment = 1
 
 [node name="BulleInfo" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(440, -11.75)
-scale = Vector2(1.2245902, 1.2080746)
+position = Vector2(502, -177.1875)
+scale = Vector2(3.2235653, 2.556677)
 texture = ExtResource("4_0ecn6")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="BulleInfo"]
-offset_left = -96.358765
-offset_top = -48.217224
-offset_right = 97.991974
-offset_bottom = 24.625961
+offset_left = -106.71414
+offset_top = -53.12071
+offset_right = 105.10916
+offset_bottom = 36.862293
+theme_override_font_sizes/normal_font_size = 14
+theme_override_font_sizes/bold_font_size = 14
+theme_override_font_sizes/bold_italics_font_size = 14
+theme_override_font_sizes/italics_font_size = 14
+theme_override_font_sizes/mono_font_size = 14
 text = "My unit description"
+scroll_active = false
 
 [connection signal="gui_input" from="." to="." method="_gui_input"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
