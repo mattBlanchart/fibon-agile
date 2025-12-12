@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c78nhjhmnpocm"]
+[gd_scene load_steps=12 format=3 uid="uid://c78nhjhmnpocm"]
 
 [ext_resource type="Script" uid="uid://chhalua7j3yg1" path="res://scripts/scenes/sprint_battle.gd" id="1_tg86f"]
 [ext_resource type="Texture2D" uid="uid://djb82wtjelyrj" path="res://assets/imgs/bg_battle.png" id="2_tg86f"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://bmsx2e1khevsg" path="res://assets/imgs/chat_boss.png" id="3_bbole"]
 [ext_resource type="Texture2D" uid="uid://dchng524l8q16" path="res://assets/imgs/barre_boss.png" id="3_k2c01"]
 [ext_resource type="Script" uid="uid://cu5lwgr7hky3w" path="res://scripts/props/ArcContainer.gd" id="3_uaw8p"]
+[ext_resource type="Texture2D" uid="uid://dctckjcifh84m" path="res://assets/imgs/background.png" id="7_4xod7"]
+[ext_resource type="Texture2D" uid="uid://dn7nfyeiu10cj" path="res://assets/imgs/tuto_aide.png" id="8_k2c01"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0vs2u"]
 bg_color = Color(0, 0, 0, 1)
@@ -233,4 +235,33 @@ offset_bottom = 3024.6665
 scale = Vector2(0.15, 0.15)
 alignment = 1
 
+[node name="Aide" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1234.0
+offset_right = 1277.0
+offset_bottom = 31.0
+text = "Aide"
+
+[node name="blur" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = -296.0
+offset_top = -326.0
+offset_right = 1624.0
+offset_bottom = 754.0
+mouse_filter = 2
+texture = ExtResource("7_4xod7")
+
+[node name="aide" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = -3.0001216
+offset_top = 1.9999411
+offset_right = 3869.0
+offset_bottom = 2162.0
+scale = Vector2(0.33, 0.33)
+mouse_filter = 2
+texture = ExtResource("8_k2c01")
+
 [connection signal="pressed" from="Button" to="." method="degat_to_sprint"]
+[connection signal="pressed" from="Aide" to="." method="_on_aide_pressed"]

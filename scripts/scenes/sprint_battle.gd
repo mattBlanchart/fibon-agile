@@ -126,3 +126,12 @@ func _draw_cards_5() -> void:
 		
 		hand_area.add_child(instance_enfant)
 		nb_cards +=1
+
+
+func _on_aide_pressed() -> void:
+	if $blur.visible == false:
+		$blur.visible = true
+		$aide.visible = true
+	else:
+		$blur.visible = false
+		$aide.visible = false
