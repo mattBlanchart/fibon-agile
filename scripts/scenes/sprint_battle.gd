@@ -14,6 +14,7 @@ extends Node
 var scene_enfant: PackedScene = preload("res://scenes/props/card.tscn")
 var scene_unit: PackedScene = preload("res://scenes/props/unit.tscn")
 var deck: Array[CardData]
+var defausse: Array[CardData]
 
 var bug_value: int:
 	set(value):
@@ -58,6 +59,7 @@ func _ready() -> void:
 	current_step.text = "PI: %s / Sprint: %s" % [GameState.pi, GameState.sprint]
 	
 	deck = PlayerState.get_current_deck()
+	defausse = []
 	
 	_draw_cards_5()
 	
@@ -77,15 +79,15 @@ func degat_to_sprint():
 			if child.data.value == 0:
 				fatigue_value = fatigue_value * 0.25
 				isCafeplayed = true
-			if child.data.unit.code == "ba" && randf() <= 0.3:		
+			if child.data.unit.code == "ba" && randf() <= 0.25:		
 				sprint_hp += child.data.value # Soigne le boss
 			else:	
 				total_dmg += child.data.value # Fait les degats au boss
 				
 			total_bugs += child.data.unit.add_bug
 
-			
-			deck.push_back(child.data) # Remet la carte au fond du deck
+			defausse.push_back(child.data)
+			#deck.push_back(child.data) # Remet la carte au fond du deck
 			child.queue_free() # Supprime le child de play_area
 		
 		bug_value += total_bugs
@@ -94,7 +96,7 @@ func degat_to_sprint():
 			fatigue_value += 5
 		
 		if sprint_hp <= 0:
-			GameState.fatigue = fatigue_value*0.8
+			GameState.fatigue = fatigue_value*0.5
 			GameState.bugs = bug_value
 			get_tree().change_scene_to_file("res://scenes/sprint_retro.tscn")
 			
@@ -116,7 +118,12 @@ func _on_card_play_requested(card: Card) -> void:
 func _draw_cards_5() -> void:
 	var nb_cards = hand_area.get_child_count()
 	
-	while nb_cards < 5 && !deck.is_empty():		
+	while nb_cards < 5:
+		if deck.is_empty() && defausse.is_empty():
+			break
+		elif deck.is_empty():
+			deck = defausse
+			
 		# Take the first card from the deck
 		var card_data = deck.pop_front()
 	
@@ -127,12 +134,5 @@ func _draw_cards_5() -> void:
 		
 		hand_area.add_child(instance_enfant)
 		nb_cards +=1
-
-
-func _on_aide_pressed() -> void:
-	if $blur.visible == false:
-		$blur.visible = true
-		$aide.visible = true
-	else:
-		$blur.visible = false
-		$aide.visible = false
+	
+	
