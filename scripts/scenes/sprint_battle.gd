@@ -47,8 +47,6 @@ var sprint_hp: int:
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	PlayerState.init() # Init le joueur en debug
-	
-	await get_tree().create_timer(1.0).timeout
 	var music := AudioStreamPlayer.new()
 	music.stream = load("res://assets/sound/music_bg.mp3")
 	music.stream.loop = true
