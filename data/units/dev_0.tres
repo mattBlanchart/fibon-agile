@@ -9,7 +9,7 @@
 script = ExtResource("1_cii1f")
 label = "Dev. fatigué de la WC"
 code = "dwc"
-add_bug = 2
+add_bug = 3
 poids = 2
 sprite = "dev_fatigué.png"
 description = "Dev épuisé par  la winter cup. 
