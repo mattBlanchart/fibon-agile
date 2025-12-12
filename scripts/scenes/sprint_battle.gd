@@ -76,7 +76,7 @@ func degat_to_sprint():
 			if child.data.value == 0:
 				fatigue_value = fatigue_value * 0.5
 				isCafeplayed = true
-			if child.data.unit.code == "ba" && randf() <= 0.4:		
+			if child.data.unit.code == "ba" && randf() <= 0.3:		
 				sprint_hp += child.data.value # Soigne le boss
 			else:	
 				total_dmg += child.data.value # Fait les degats au boss
