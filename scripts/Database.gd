@@ -44,31 +44,3 @@ func init_units() -> void:
 			if unit_data is UnitData:
 				units[unit_data.code] = unit_data
 	print(units)
-	
-#func init_cards() -> void:
-	#var dir := DirAccess.open("res://data/cards/")
-	#print(dir.dir_exists)
-	#print(dir.get_files)
-	#if dir:
-		#for file in dir.get_files():
-			#if file.ends_with(".tres"):
-				#var path := "res://data/cards/" + file
-				#var data := load(path)
-#
-				#if data is CardData:
-					#cards[data.value] = data
-	#print(cards)
-
-#func init_units() -> void:
-	#var dir := DirAccess.open("res://data/units/")
-	#print(dir.dir_exists)
-	#print(dir.get_files)
-	#if dir:
-		#for file in dir.get_files():
-			#if file.ends_with(".tres"):
-				#var path := "res://data/units/" + file
-				#var data := load(path)
-#
-				#if data is UnitData:
-					#units[data.code] = data
-	#print(units)
