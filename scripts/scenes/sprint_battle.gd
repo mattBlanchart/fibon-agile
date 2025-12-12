@@ -112,7 +112,6 @@ func _on_card_play_requested(card: Card) -> void:
 		card.reparent(hand_area)
 		
 func _draw_cards_5() -> void:
-	print(hand_area.get_child_count())
 	var nb_cards = hand_area.get_child_count()
 	
 	while nb_cards < 5 && !deck.is_empty():		
