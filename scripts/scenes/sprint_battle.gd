@@ -76,11 +76,9 @@ func degat_to_sprint():
 			if child.data.value == 0:
 				fatigue_value = fatigue_value * 0.5
 				isCafeplayed = true
-			if child.data.unit.code == "ba" && randf() <= 0.4:
-				print("soin")			
+			if child.data.unit.code == "ba" && randf() <= 0.4:		
 				sprint_hp += child.data.value # Soigne le boss
-			else:
-				print("degat")	
+			else:	
 				total_dmg += child.data.value # Fait les degats au boss
 				
 			total_bugs += child.data.unit.add_bug
@@ -99,7 +97,7 @@ func degat_to_sprint():
 			get_tree().change_scene_to_file("res://scenes/sprint_retro.tscn")
 			
 		# Pioche les cartes de debut du nouveau tour
-		_draw_cards(PlayerState.drawByTurn)
+		_draw_cards_5()
 
 	$Button.disabled = false
 		
@@ -112,12 +110,12 @@ func _on_card_play_requested(card: Card) -> void:
 	elif card.get_parent() == play_area:
 		# Deplace la carte dans la main
 		card.reparent(hand_area)
-
-func _draw_cards(amount: int = 1) -> void:
-	for i in range(1, amount + 1):
-		# Si le deck est vide on s'arrete la et plus de pioche :D
-		if deck.is_empty(): return
 		
+func _draw_cards_5() -> void:
+	print(hand_area.get_child_count())
+	var nb_cards = hand_area.get_child_count()
+	
+	while nb_cards < 5 && !deck.is_empty():		
 		# Take the first card from the deck
 		var card_data = deck.pop_front()
 	
@@ -127,3 +125,4 @@ func _draw_cards(amount: int = 1) -> void:
 		instance_enfant.play_requested.connect(_on_card_play_requested)
 		
 		hand_area.add_child(instance_enfant)
+		nb_cards +=1
