@@ -70,8 +70,12 @@ func degat_to_sprint():
 	# Evite de calculer les tours sans cartes
 	var total_dmg: int = 0
 	var total_bugs: int = 0
+	var isCafeplayed: bool = false
 	if play_area.get_child_count() != 0:
 		for child in play_area.get_children():
+			if child.data.value == 0:
+				fatigue_value = fatigue_value * 0.5
+				isCafeplayed = true
 			total_dmg += child.data.value # Fait les degats au boss
 			total_bugs += child.data.unit.add_bug
 			
@@ -79,8 +83,9 @@ func degat_to_sprint():
 			child.queue_free() # Supprime le child de play_area
 		
 		bug_value += total_bugs
-		sprint_hp -= total_dmg * (100 - fatigue_value) / 100
-		fatigue_value += 5
+		sprint_hp -= total_dmg * 50 / (50 + fatigue_value)
+		if !isCafeplayed:
+			fatigue_value += 5
 		
 		if sprint_hp <= 0:
 			GameState.bugs = bug_value
