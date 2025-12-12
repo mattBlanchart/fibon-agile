@@ -195,7 +195,7 @@ autoplay = "FP_run"
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_y8nor")
 theme_override_font_sizes/font_size = 32
-text = "Marathonien"
+text = "Marathonien / DEV"
 horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
@@ -256,7 +256,7 @@ stretch_mode = 5
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_y8nor")
 theme_override_font_sizes/font_size = 32
-text = "Testeur"
+text = "Il est là"
 horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
@@ -293,7 +293,7 @@ start_delay = 1.0
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_y8nor")
 theme_override_font_sizes/font_size = 32
-text = "Imagiste"
+text = "Graphiste / DEV"
 horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
@@ -339,6 +339,13 @@ text = "Raphael
 STEDRY"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Musique" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_y8nor")
+theme_override_font_sizes/font_size = 30
+text = "Musique :  Welcome Space Traveler de Pix"
+horizontal_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
 layout_mode = 2
