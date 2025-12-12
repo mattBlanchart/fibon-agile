@@ -1,7 +1,6 @@
-[gd_resource type="Resource" script_class="UnitData" load_steps=6 format=3 uid="uid://bi47hc1eu2lc3"]
+[gd_resource type="Resource" script_class="UnitData" load_steps=5 format=3 uid="uid://bi47hc1eu2lc3"]
 
 [ext_resource type="Script" uid="uid://b64xjjg7rdik0" path="res://data/card_data.gd" id="1_chh81"]
-[ext_resource type="Resource" uid="uid://c5i18envt0tja" path="res://data/cards/m05.tres" id="2_upum3"]
 [ext_resource type="Resource" uid="uid://bmxw4yrksq5km" path="res://data/cards/005.tres" id="3_em66r"]
 [ext_resource type="Script" uid="uid://bku2vvhlwq0xt" path="res://data/unit_data.gd" id="4_38x4v"]
 [ext_resource type="Resource" uid="uid://drjlofj0vhesv" path="res://data/cards/003.tres" id="4_qjkru"]
@@ -13,6 +12,6 @@ code = "ba"
 poids = 5
 sprite = "ba.png"
 description = "BA.
-Si dev validé, les pv du sprint diminue soit les pv du sprint augmente."
-cards = Array[ExtResource("1_chh81")]([ExtResource("2_upum3"), ExtResource("3_em66r"), ExtResource("4_qjkru")])
+Ses cartes ont une chance de soigner (40%) ou de réaliser des dégats (60%)"
+cards = Array[ExtResource("1_chh81")]([ExtResource("3_em66r"), ExtResource("4_qjkru"), ExtResource("4_qjkru")])
 metadata/_custom_type_script = "uid://bku2vvhlwq0xt"

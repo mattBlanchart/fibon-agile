@@ -81,6 +81,7 @@ theme_override_constants/separation = 10
 alignment = 1
 
 [node name="BulleInfo" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(502, -177.1875)
 scale = Vector2(3.2235653, 2.556677)
 texture = ExtResource("4_0ecn6")

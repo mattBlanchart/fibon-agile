@@ -76,8 +76,15 @@ func degat_to_sprint():
 			if child.data.value == 0:
 				fatigue_value = fatigue_value * 0.5
 				isCafeplayed = true
-			total_dmg += child.data.value # Fait les degats au boss
+			if child.data.unit.code == "ba" && randf() <= 0.4:
+				print("soin")			
+				sprint_hp += child.data.value # Soigne le boss
+			else:
+				print("degat")	
+				total_dmg += child.data.value # Fait les degats au boss
+				
 			total_bugs += child.data.unit.add_bug
+
 			
 			deck.push_back(child.data) # Remet la carte au fond du deck
 			child.queue_free() # Supprime le child de play_area
