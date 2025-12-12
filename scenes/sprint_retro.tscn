@@ -32,7 +32,7 @@ offset_left = 507.0
 offset_top = 538.0
 offset_right = 771.0
 offset_bottom = 616.0
-text = "To next Sprint"
+text = "Passez au sprint suivant"
 script = ExtResource("1_cupo7")
 
 [node name="PlayAreaContainer" type="Panel" parent="."]
