@@ -12,7 +12,7 @@ func _ready() -> void:
 	
 	var weights = _getWeightListFromDictionary(recompense_unit)
 
-	for i in range(3):
+	for i in range(3): #nb d'unité dans le choix de la retro
 		units.append(_getOneRandomUnitWithWeights(recompense_unit, weights))
 
 		var unit_scene = unit_scene_pre.instantiate()
@@ -42,5 +42,11 @@ func _getWeightListFromDictionary(units: Dictionary[String, UnitData]) -> Packed
 #Pour l'instant, j'ai mis la scène de battle juste après avoir cliqué l'unité
 # c'est pas smooth mais c'était pour avancer dans le dev !
 func _on_unit_selected(unit: Unit) -> void:
-	PlayerState.units.append(unit.data)
+	#Si il y a 5 unités dans le playerstate alors on enlève la premiere
+	# unité (pas le dwc) et on rajoute l'unité choisie
+	if PlayerState.units.size() == 5:
+		PlayerState.units.remove_at(1)
+		PlayerState.units.append(unit.data)
+	else:
+		PlayerState.units.append(unit.data)
 	_on_next_sprint_pressed()
