@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dchng524l8q16" path="res://assets/imgs/barre_boss.png" id="3_k2c01"]
 [ext_resource type="Script" uid="uid://cu5lwgr7hky3w" path="res://scripts/props/ArcContainer.gd" id="3_uaw8p"]
 [ext_resource type="Texture2D" uid="uid://dctckjcifh84m" path="res://assets/imgs/background.png" id="7_4xod7"]
-[ext_resource type="Texture2D" uid="uid://dn7nfyeiu10cj" path="res://assets/imgs/tuto_aide.png" id="8_k2c01"]
+[ext_resource type="Texture2D" uid="uid://j5lxf0vux4cx" path="res://assets/imgs/tuto_aide.png" id="8_k2c01"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0vs2u"]
 bg_color = Color(0, 0, 0, 1)
