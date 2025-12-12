@@ -11,6 +11,6 @@ code = "ba"
 poids = 5
 sprite = "ba.png"
 description = "BA.
-Ses cartes ont une chance de soigner (30%) ou de réaliser des dégats (70%)"
+Ses cartes ont une chance de soigner (25%) ou de réaliser des dégats (75%)"
 cards = Array[ExtResource("1_chh81")]([ExtResource("3_em66r"), ExtResource("3_em66r"), ExtResource("3_em66r")])
 metadata/_custom_type_script = "uid://bku2vvhlwq0xt"
