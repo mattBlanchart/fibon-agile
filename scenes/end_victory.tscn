@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dxvbn34fu0lne"]
+[gd_scene load_steps=5 format=3 uid="uid://b8vutglyot5ee"]
 
 [ext_resource type="Texture2D" uid="uid://dctckjcifh84m" path="res://assets/imgs/background.png" id="1_cbgbp"]
 [ext_resource type="Script" uid="uid://dg4nthlo362o6" path="res://scenes/end_victory.gd" id="1_w1nva"]
@@ -39,3 +39,15 @@ offset_bottom = 712.0
 theme_override_fonts/font = ExtResource("3_o632h")
 theme_override_font_sizes/font_size = 251
 text = "VICTORY"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1092.0
+offset_top = 636.0
+offset_right = 1260.0
+offset_bottom = 712.0
+theme_override_fonts/font = ExtResource("3_o632h")
+theme_override_font_sizes/font_size = 30
+text = "Ecran titre"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

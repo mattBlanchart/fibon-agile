@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://4jx7pxnh83nf"]
+[gd_scene load_steps=4 format=3 uid="uid://d0wke02554vu3"]
 
 [ext_resource type="Script" uid="uid://g3neogwch4rt" path="res://scenes/end_defeat.gd" id="1_epwoa"]
 [ext_resource type="Texture2D" uid="uid://dctckjcifh84m" path="res://assets/imgs/background.png" id="1_rlo8w"]
@@ -30,3 +30,25 @@ offset_bottom = 569.0
 theme_override_fonts/font = ExtResource("2_epwoa")
 theme_override_font_sizes/font_size = 251
 text = "DEFEAT"
+
+[node name="Label" type="Label" parent="bckground/Label"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 254.0
+offset_right = 212.0
+offset_bottom = 301.0
+theme_override_fonts/font = ExtResource("2_epwoa")
+theme_override_font_sizes/font_size = 50
+text = "T'es mort de fatigue !"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1007.0
+offset_top = 611.0
+offset_right = 1230.0
+offset_bottom = 681.0
+theme_override_fonts/font = ExtResource("2_epwoa")
+theme_override_font_sizes/font_size = 30
+text = "Ecran titre"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

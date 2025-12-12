@@ -2,6 +2,7 @@
 extends Node
 
 var pi: int = 1
+			
 var sprint: int = 1:
 	set(value):
 		if value > Database.pi_size:

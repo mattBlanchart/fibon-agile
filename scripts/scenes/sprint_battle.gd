@@ -100,11 +100,17 @@ func degat_to_sprint():
 		if !isCafeplayed:
 			fatigue_value += 5
 		
+		if fatigue_value > 100:
+				get_tree().change_scene_to_file("res://scenes/end_defeat.tscn")
+			
 		if sprint_hp <= 0:
 			GameState.fatigue = fatigue_value*0.5
 			GameState.bugs = bug_value
-			get_tree().change_scene_to_file("res://scenes/sprint_retro.tscn")
-			
+
+			if GameState.pi == 7 && GameState.sprint == 3:
+				get_tree().change_scene_to_file("res://scenes/end_victory.tscn")
+			else:
+				get_tree().change_scene_to_file("res://scenes/sprint_retro.tscn")
 		# Pioche les cartes de debut du nouveau tour
 		_draw_cards_5()
 
