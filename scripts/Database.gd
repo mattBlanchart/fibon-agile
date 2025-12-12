@@ -34,7 +34,6 @@ func init_cards() -> void:
 		for card_data in cards_data:
 			if card_data is CardData:
 				cards[card_data.value] = card_data
-	print(cards)
 	
 func init_units() -> void:
 	var units_data = [unit_ba,unit_dwc,unit_dj,unit_de,unit_stg,unit_archi]
@@ -43,4 +42,3 @@ func init_units() -> void:
 		for unit_data in units_data:
 			if unit_data is UnitData:
 				units[unit_data.code] = unit_data
-	print(units)

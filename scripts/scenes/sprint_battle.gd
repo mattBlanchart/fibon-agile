@@ -52,6 +52,7 @@ func _ready() -> void:
 	sprint_hp_max = ((GameState.pi + GameState.sprint)*5 -5)*(GameState.pi + GameState.sprint)/Database.pi_size - 1
 	sprint_hp_max += GameState.bugs
 	GameState.bugs = 0
+	fatigue_value = GameState.fatigue
 	sprint_hp = sprint_hp_max
 	
 	current_step.text = "PI: %s / Sprint: %s" % [GameState.pi, GameState.sprint]
@@ -74,7 +75,7 @@ func degat_to_sprint():
 	if play_area.get_child_count() != 0:
 		for child in play_area.get_children():
 			if child.data.value == 0:
-				fatigue_value = fatigue_value * 0.5
+				fatigue_value = fatigue_value * 0.25
 				isCafeplayed = true
 			if child.data.unit.code == "ba" && randf() <= 0.3:		
 				sprint_hp += child.data.value # Soigne le boss
@@ -93,6 +94,7 @@ func degat_to_sprint():
 			fatigue_value += 5
 		
 		if sprint_hp <= 0:
+			GameState.fatigue = fatigue_value*0.8
 			GameState.bugs = bug_value
 			get_tree().change_scene_to_file("res://scenes/sprint_retro.tscn")
 			
@@ -112,7 +114,6 @@ func _on_card_play_requested(card: Card) -> void:
 		card.reparent(hand_area)
 		
 func _draw_cards_5() -> void:
-	print(hand_area.get_child_count())
 	var nb_cards = hand_area.get_child_count()
 	
 	while nb_cards < 5 && !deck.is_empty():		
